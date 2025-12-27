@@ -1,0 +1,45 @@
+{
+  "categories": ["Latest", "Django", "Problem Solving", "Career Guide"],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Complete Django REST Framework Roadmap",
+      "videoId": "YXUbYdCYEcA", 
+      "tags": ["Latest", "Django"],
+      "views": "1.5k views",
+      "link": "https://youtu.be/YXUbYdCYEcA"
+    },
+    {
+      "id": 2,
+      "title": "Codeforces Problem Solving Techniques",
+      "videoId": "xPFP71",
+      "tags": ["Latest", "Problem Solving"],
+      "views": "2.1k views",
+      "link": "https://youtu.be/xPFP71"
+    },
+    {
+      "id": 3,
+      "title": "How to master Data Structures?",
+      "videoId": "F1871", 
+      "tags": ["Career Guide"],
+      "views": "5k views",
+      "link": "https://youtu.be/F1871"
+    },
+    {
+      "id": 4,
+      "title": "Build an API with Python",
+      "videoId": "abc1234", 
+      "tags": ["Django"],
+      "views": "900 views",
+      "link": "https://youtu.be/abc1234"
+    },
+    {
+      "id": 5,
+      "title": "Dynamic Programming Made Easy",
+      "videoId": "dp12345",
+      "tags": ["Problem Solving"],
+      "views": "3k views",
+      "link": "https://youtu.be/dp12345"
+    }
+  ]
+}
