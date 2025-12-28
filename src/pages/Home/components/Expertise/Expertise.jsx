@@ -10,7 +10,7 @@ const expertiseData = [
     "id": 1,
     "title": "Backend Architecture",
     "stat": "2+ Production Web Solutions",
-    "desc": "Designing scalable RESTful APIs with Django & DRF. Specialized in complex database schemas (PostgreSQL), authentication (JWT), and asynchronous tasks using Celery & Redis.",
+    "desc": "Designing scalable RESTful APIs with Django & DRF. Specialized in complex database schemas (MySQL), authentication (JWT), and asynchronous tasks using Celery.",
     "icon": "backend",
     "skills": ["Django","Django REST", "MySQL", "Celery", "JWT"],
     "color": "from-cyan-400 to-blue-600"
@@ -19,7 +19,7 @@ const expertiseData = [
     "id": 2,
     "title": "Frontend Development",
     "stat": "5+ Projects Deployed",
-    "desc": "Building responsive and dynamic user interfaces using React.js. Experienced in integrating frontend with backend services, state management, and optimizing performance for better user experience.",
+    "desc": "Building responsive and dynamic UI using React.js. Experienced in integrating frontend with backend services, state management, and optimizing performance for better user experience.",
     "icon": "frontend",
     "skills": ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
     "color": "from-green-400 to-emerald-500"
@@ -37,14 +37,14 @@ const expertiseData = [
     "id": 4,
     "title": "Core CS Fundamentals",
     "stat": "Strong Theoretical Foundation",
-    "desc": "In-depth understanding of Data Structures, Algorithms, Operating Systems, and Database Management. Applied these concepts in real-world projects to enhance efficiency and performance.",
+    "desc": "In-depth understanding of Data Structures, Algorithms,Object-oriented programming, Database Management System, Operating Systems. Applied these concepts in real-world projects to enhance efficiency and performance.",
     "icon": "fundamentals",
     "skills": ["Data Structures", "Algorithms", "OOP",  "DBMS", "OS Concepts", "Software Design", "Machine Learning", "Computer Networks"],
     "color": "from-indigo-400 to-purple-600"
   },
   {
     "id": 5,
-    "title": "Data Science & AI",
+    "title": "Basic Data Science & AI/ML",
     "stat": "Certified by IICT, SUST",
     "desc": "Transforming raw data into actionable insights using Python's data stack. Experienced in training ML models, statistical analysis, and visualization under the EDGE Project.",
     "icon": "ai",

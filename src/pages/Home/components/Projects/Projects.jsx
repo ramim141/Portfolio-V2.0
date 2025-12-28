@@ -7,224 +7,259 @@ import ScrollIndicator from '../../../../components/ScrollIndicator';
 
 // Project Data
 const projectData = [
-  {
-    "id": 1,
-    "title": "Deed Generator System",
-    "category": "Real World Client Project",
-    "description": "A specialized PDF generation system developed for 'Multiplan Shahjalal City Ltd'. It automates the creation of rental deeds based on user input, replacing manual paperwork.",
-    "fullDescription": "This project was developed as a complete solution for Multiplan Shahjalal City Ltd to digitize their rental deed generation process. The system takes user inputs through an intuitive form interface and automatically generates professional PDF documents with all necessary legal information. Key features include dynamic field population, custom branding, multiple deed templates, and instant PDF download functionality. The application significantly reduced manual paperwork time from hours to minutes, improved accuracy, and provides a consistent format for all rental agreements.",
-    "features": [
-      "Dynamic PDF generation with custom templates",
-      "User-friendly form interface with validation",
-      "Automatic data population and formatting",
-      "Multiple deed template support",
-      "Instant download and print functionality",
-      "Responsive design for all devices"
-    ],
-    "challenges": "Handling complex Bengali text rendering in PDFs, ensuring cross-browser compatibility, and maintaining legal document standards.",
-    "tech": ["JavaScript", "HTML/CSS", "PDF Generation", "Tailwind"],
-    "techStack": {
-      "frontend": ["HTML5", "CSS3", "JavaScript ES6+", "Tailwind CSS"],
-      "libraries": ["jsPDF", "html2canvas"],
-      "tools": ["Git", "VS Code"]
-    },
-    "duration": "2 months",
-    "team": "Solo Project",
-    "learnings": [
-      "Mastered dynamic PDF generation with complex layouts",
-      "Learned handling Bengali Unicode characters in PDFs",
-      "Improved understanding of client requirements and professional communication",
-      "Gained experience in real-world project delivery and maintenance"
-    ],
-    "futureFeatures": [
-      "Digital signature integration",
-      "Email automation for deed distribution",
-      "Multi-language support (English/Bengali toggle)",
-      "Cloud storage integration for archiving"
-    ],
-    "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "links": {
-      "github": "https://github.com/ramim141",
-      "live": "https://deed-generator.vercel.app" 
-    },
-    "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop",
-    "featured": false
-  },
-  {
-    "id": 2,
-    "title": "Tutorly - E-learning Platform",
-    "category": "Full Stack (Team Project)",
-    "description": "A comprehensive LMS featuring student enrollment, video playback, quizzes, and assignment tracking. Built with a decoupled architecture using DRF and React.",
-    "fullDescription": "Tutorly is a full-featured Learning Management System designed to facilitate online education. The platform enables instructors to create courses, upload video content, design quizzes, and track student progress. Students can enroll in courses, watch educational videos, take assessments, and submit assignments. The system features a clean, intuitive interface built with React on the frontend and a robust Django REST Framework backend for API services. Authentication, authorization, and role-based access control ensure secure operations for different user types.",
-    "features": [
-      "User authentication and role-based access (Student/Instructor)",
-      "Course creation and management system",
-      "Video streaming and playback with progress tracking",
-      "Interactive quiz system with auto-grading",
-      "Assignment submission and evaluation",
-      "Real-time progress dashboard",
-      "Responsive UI for mobile and desktop"
-    ],
-    "challenges": "Implementing video streaming optimization, designing a scalable database schema for course relationships, and ensuring smooth real-time updates.",
-    "tech": ["Django REST", "React.js", "SQLite", "Axios"],
-    "techStack": {
-      "frontend": ["React.js", "React Router", "Axios", "CSS3"],
-      "backend": ["Django", "Django REST Framework", "SQLite"],
-      "tools": ["Git", "Postman", "VS Code"]
-    },
-    "duration": "3 months",
-    "team": "Team of 3",
-    "learnings": [
-      "Built RESTful APIs with Django REST Framework",
-      "Implemented token-based authentication (JWT)",
-      "Learned video streaming optimization techniques",
-      "Practiced Agile development with team collaboration"
-    ],
-    "futureFeatures": [
-      "Live class integration with WebRTC",
-      "AI-powered quiz generation",
-      "Certificate generation system",
-      "Payment gateway integration"
-    ],
-    "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "links": {
-      "github": "https://github.com/ramim141",
-      "live": "https://tutorly-lms.vercel.app"
-    },
-    "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2000&auto=format&fit=crop",
-    "featured": false
-  },
-  {
-    "id": 3,
-    "title": "Note Bank Platform",
-    "category": "Full Stack (Academic Project)",
-    "description": "A study resource sharing platform allowing users to upload, rate, and search notes. Implements complex file handling and user authentication.",
-    "fullDescription": "Note Bank is a collaborative platform where students can share, discover, and rate study materials. Users can upload notes in various formats (PDF, DOCX, images), categorize them by subject and semester, and search through a comprehensive database of shared resources. The platform includes user authentication with JWT tokens, a rating and review system, and advanced search functionality. Built with a modern tech stack, it demonstrates proficiency in file handling, database relationships, and RESTful API design.",
-    "features": [
-      "Secure file upload and storage system",
-      "JWT-based authentication and authorization",
-      "Advanced search with filters (subject, semester, rating)",
-      "Rating and review system for notes",
-      "User profile and contribution tracking",
-      "PostgreSQL database with optimized queries",
-      "Responsive design for seamless mobile experience"
-    ],
-    "challenges": "Handling large file uploads efficiently, implementing secure file access control, and designing complex database relationships for categorization.",
-    "tech": ["Django REST", "React.js", "PostgreSQL", "JWT"],
-    "techStack": {
-      "frontend": ["React.js", "Axios", "React Router", "Bootstrap"],
-      "backend": ["Django REST Framework", "PostgreSQL", "JWT Authentication"],
-      "tools": ["Git", "pgAdmin", "Postman"]
-    },
-    "duration": "2 months",
-    "team": "Solo Project",
-    "learnings": [
-      "Implemented secure file upload with validation",
-      "Designed complex many-to-many database relationships",
-      "Built advanced search with multiple filters",
-      "Learned PostgreSQL optimization techniques"
-    ],
-    "futureFeatures": [
-      "AI-powered note summarization",
-      "Collaborative note editing",
-      "OCR for handwritten notes",
-      "Mobile app version"
-    ],
-    "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "links": {
-      "github": "https://github.com/ramim141",
-      "live": "#"
-    },
-    "image": "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2000&auto=format&fit=crop",
-    "featured": false
-  },
-  {
-    "id": 4,
-    "title": "Foodzy - Organic Store",
-    "category": "E-commerce",
-    "description": "Functional e-commerce site with shopping cart management, product filtering, and order placement logic using Django MVT architecture.",
-    "fullDescription": "Foodzy is a full-featured e-commerce platform specializing in organic food products. Built using Django's MVT (Model-View-Template) architecture, the platform provides a complete online shopping experience. Users can browse products by category, add items to their cart, manage quantities, and place orders. The admin panel allows store managers to manage inventory, track orders, and update product information. The application demonstrates strong understanding of Django ORM, session management, and database-driven web applications.",
-    "features": [
-      "Product catalog with categories and filters",
-      "Shopping cart with session management",
-      "Order placement and tracking system",
-      "Admin panel for inventory management",
-      "Product search and filtering",
-      "Responsive design with Tailwind CSS",
-      "SQLite database with Django ORM"
-    ],
-    "challenges": "Implementing secure session-based cart management, handling inventory updates in real-time, and creating an intuitive admin interface.",
-    "tech": ["Django MVT", "Tailwind CSS", "SQLite", "ORM"],
-    "techStack": {
-      "frontend": ["Django Templates", "Tailwind CSS", "JavaScript"],
-      "backend": ["Django MVT", "SQLite", "Django ORM"],
-      "tools": ["Git", "Django Admin"]
-    },
-    "duration": "1.5 months",
-    "team": "Solo Project",
-    "learnings": [
-      "Mastered Django MVT architecture",
-      "Implemented session-based authentication",
-      "Built complex ORM queries for e-commerce logic",
-      "Created responsive UI with Tailwind CSS"
-    ],
-    "futureFeatures": [
-      "Payment gateway integration (Stripe/PayPal)",
-      "Order tracking with email notifications",
-      "Product recommendation system",
-      "Customer reviews and ratings"
-    ],
-    "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "links": {
-      "github": "https://github.com/ramim141",
-      "live": "https://foodzy-organic.vercel.app"
-    },
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2000&auto=format&fit=crop",
-    "featured": false
-  },
 
-  {
-  "id": 5,
-  "title": "Kishorekonto Medhabritti Result System - Sylhet West",
-  "category": "Educational / Result Management",
-  "description": "A dedicated web portal for managing and publishing results of the Kishorekonto Medhabritti exam. Students can easily check their results using their roll number.",
-  "fullDescription": "The Kishorekonto Medhabritti Result Management System is built to streamline the result publishing process for the Sylhet West Zone. It replaces manual result checking with a digital solution. Students can input their roll numbers to instantly view their marks and merit status. The platform ensures data accuracy and provides an administrative panel for organizers to upload and manage student data efficiently.",
-  "features": [
-    "Student result search by Roll Number",
-    "Admin dashboard for data management",
-    "Merit list and mark sheet generation",
-    "Responsive design for mobile and desktop access",
-    "Fast and secure data retrieval"
-  ],
-  "challenges": "Handling large datasets of student results efficiently, ensuring 100% accuracy in result display, and optimizing search performance to handle traffic during result publication.",
-  "tech": ["React.js", "Tailwind CSS", "Firebase/Node.js"],
-  "techStack": {
-    "frontend": ["React.js", "Tailwind CSS", "Vite/Create-React-App"],
-    "backend": ["Firebase Firestore" , "Context API"],
-    "tools": ["Git", "VS Code", "Vercel"]
-  },
-  "duration": "Ongoing",
-  "team": "Individual Project",
-  "learnings": [
-    "Mastered CRUD operations for managing student records",
-    "Learned to handle data filtering and searching algorithms",
-    "Improved UI/UX for educational platforms",
-    "Experience in deploying React apps on Vercel"
-  ],
-  "futureFeatures": [
-    "Downloadable PDF marksheets",
-    "SMS notification system for results",
-    "Past year result archive",
-    "Graphical analytics of student performance"
-  ],
-  "youtubeVideo": "",
-  "links": {
-    "github": "https://github.com/ramim141/kishorkhonto-medabritti-result-management-system",
-    "live": "https://kksylwest.vercel.app/"
-  },
-  "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2000&auto=format&fit=crop",
-  "featured": true
-}
+
+    {
+        "id": 1,
+        "title": "Kishorekonto Medhabritti Result System - Sylhet West",
+        "category": "Educational / Result Management",
+        "description": "A dedicated web portal for managing and publishing results of the Kishorekonto Medhabritti exam. Students can easily check their results using their roll number.",
+        "fullDescription": "The Kishorekonto Medhabritti Result Management System is built to streamline the result publishing process for the Sylhet West Zone. It replaces manual result checking with a digital solution. Students can input their roll numbers to instantly view their marks and merit status. The platform ensures data accuracy and provides an administrative panel for organizers to upload and manage student data efficiently.",
+        "features": [
+            "Student result search by Roll Number",
+            "Admin dashboard for data management",
+            "Merit list and mark sheet generation",
+            "Responsive design for mobile and desktop access",
+            "Fast and secure data retrieval"
+        ],
+        "challenges": "Handling large datasets of student results efficiently, ensuring 100% accuracy in result display, and optimizing search performance to handle traffic during result publication.",
+        "tech": ["React.js", "Tailwind CSS", "DRF", "MySQL", "Vercel"],
+        "techStack": {
+            "frontend": ["React.js", "Tailwind CSS", "Vite/React-App"],
+            "backend": ["DRF", "API", "MySQL", "ORM"],
+            "tools": ["Git", "VS Code", "Vercel"]
+        },
+        "duration": "3 months",
+        "team": "Individual Project",
+        "learnings": [
+            "Mastered CRUD operations for managing student records",
+            "Learned to handle data filtering and searching algorithms",
+            "Improved UI/UX for educational platforms",
+            "Implemented efficient state management for large datasets",
+            "Gained experience in optimizing API calls for better performance",
+            "Enhanced skills in creating responsive data tables and result displays",
+            "Experience in deploying React apps on Vercel"
+        ],
+        "futureFeatures": [
+            "Search results by exam roll number",
+            "Merit list generation",
+            "Organization all information panel",
+            "Library sorting and filtering",
+            "FQA section for student queries",
+            "Contact form for support",
+            "Downloadable PDF mark sheets and Print option",
+            "Notice board for announcements",
+            "Past year result archive",
+            "Overall statistic and analytics of results"
+        ],
+        "youtubeVideo": "",
+        "links": {
+            "github": "https://github.com/ramim141/kishorkhonto-medabritti-result-management-system",
+            "live": "https://kksylwest.vercel.app/"
+        },
+        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2000&auto=format&fit=crop",
+        "featured": true
+    }, 
+
+    {
+        "id": 2,
+        "title": "Foodzy - Organic Store",
+        "category": "E-commerce",
+        "description": "Functional e-commerce site with shopping cart management,Payment system, User management, product filtering, customer reviews and order placement and invoice generate logic using Django MVT architecture.",
+        "fullDescription": "Foodzy is a full-featured e-commerce platform specializing in organic food products. Built using Django's MVT (Model-View-Template) architecture, the platform provides a complete online shopping experience. Users can browse products by category, add items to their cart, manage quantities, and place orders. The admin panel allows store managers to manage inventory, track orders, and update product information. The application demonstrates strong understanding of Django ORM, session management, and database-driven web applications.",
+        "features": [
+            "User authentication and profile management",
+            "User email verification and password reset",
+            "Payment gateway integration (Stripe/SSLCommerz)",
+            "Order invoice generation in PDF format",
+            "Product catalog with categories and filters",
+            "Shopping cart with session management",
+            "Order placement and tracking system",
+            "Admin panel for inventory management",
+            "Product reviews and ratings",
+            "Discount coupons and promotional offers",
+            "Product search and filtering",
+            "Responsive design with Tailwind CSS",
+            "SQLite database with Django ORM"
+        ],
+        "challenges": "Implementing secure session-based cart management, handling inventory updates in real-time, and creating an intuitive admin interface.",
+        "tech": ["Django MVT", "Tailwind CSS", "SQLite", "ORM"],
+        "techStack": {
+            "frontend": ["Django Templates", "Tailwind CSS", "JavaScript"],
+            "backend": ["Django MVT", "SQLite", "Django ORM"],
+            "tools": ["Git", "Django Admin"]
+        },
+        "duration": "1.5 months",
+        "team": "Solo Project",
+        "learnings": [
+            "Mastered Django MVT architecture",
+            "Celery and Redis for asynchronous tasks",
+            "AJAX for dynamic content updates",
+            "Implemented payment gateway integration",
+            "Generated invoice PDFs dynamically",
+            "Implemented session-based authentication",
+            "Built complex ORM queries for e-commerce logic",
+            "Created responsive UI with Tailwind CSS"
+        ],
+        "futureFeatures": [
+            "Advanced product recommendation system",
+            "Dealer management and multi-vendor support",
+            "Loyalty program and discount coupons",
+            "Enhanced analytics dashboard for sales tracking",
+            "External admin pannel for order management",
+        ],
+        "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "links": {
+            "github": "https://github.com/ramim141",
+            "live": "https://foodzy-organic.vercel.app"
+        },
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2000&auto=format&fit=crop",
+        "featured": false
+    },
+    
+    {
+        "id": 3,
+        "title": "Note Bank Platform",
+        "category": "Full Stack (Academic Project)",
+        "description": "A study resource sharing platform allowing users to upload, rate, and search notes. Implements complex file handling and user authentication.",
+        "fullDescription": "Note Bank is a collaborative platform where students can share, discover, and rate study materials. Users can upload notes in various formats (PDF, DOCX, images), categorize them by subject and semester, and search through a comprehensive database of shared resources. The platform includes user authentication with JWT tokens, a rating and review system, and advanced search functionality. Built with a modern tech stack, it demonstrates proficiency in file handling, database relationships, and RESTful API design.",
+        "features": [
+            "User registration and login system",
+            "Email verification and password reset",
+            "Secure file upload and storage system",
+            "Realtime notifications for uploads and reviews",
+            "JWT-based authentication and authorization",
+            "Advanced search with filters (subject, semester, rating)",
+            "Rating and review system for notes",
+            "User profile and contribution tracking",
+            "Django SQLite database with optimized queries",
+            "Responsive design for seamless mobile experience"
+        ],
+        "challenges": "Handling large file uploads efficiently, implementing secure file access control, and designing complex database relationships for categorization.",
+        "tech": ["Django REST", "React.js", "PostgreSQL", "JWT"],
+        "techStack": {
+            "frontend": ["React.js", "Axios", "React Router", "Tailwind CSS"],
+            "backend": ["Django REST Framework", "SQLite", "JWT Authentication", "WebSockets"],
+            "tools": ["Git", "pgAdmin", "Postman"]
+        },
+        "duration": "2 months",
+        "team": "Project-300 Course",
+        "learnings": [
+            "Implemented secure file upload with validation",
+            "Designed complex many-to-many database relationships",
+            "Built advanced search with multiple filters",
+            "Learned PostgreSQL optimization techniques",
+            "Web Sockets for realtime notifications",
+            "Role-based access control with JWT",
+            "Enhanced frontend-backend integration using Axios"
+        ],
+        "futureFeatures": [
+            "AI-powered note summarization",
+            "Collaborative note editing",
+            "OCR for handwritten notes",
+            "Subcription model for premium content",
+            "Mobile app version"
+        ],
+        "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "links": {
+            "github": "https://github.com/ramim141",
+            "live": "#"
+        },
+        "image": "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2000&auto=format&fit=crop",
+        "featured": false
+    },
+    
+//     {
+//     "id": 3,
+//     "title": "Deed Generator System",
+//     "category": "Real World Client Project",
+//     "description": "A specialized PDF generation system developed for 'Multiplan Shahjalal City Ltd'. It automates the creation of rental deeds based on user input, replacing manual paperwork.",
+//     "fullDescription": "This project was developed as a complete solution for Multiplan Shahjalal City Ltd to digitize their rental deed generation process. The system takes user inputs through an intuitive form interface and automatically generates professional PDF documents with all necessary legal information. Key features include dynamic field population, custom branding, multiple deed templates, and instant PDF download functionality. The application significantly reduced manual paperwork time from hours to minutes, improved accuracy, and provides a consistent format for all rental agreements.",
+//     "features": [
+//       "Dynamic PDF generation with custom templates",
+//       "User-friendly form interface with validation",
+//       "Automatic data population and formatting",
+//       "Multiple deed template support",
+//       "Instant download and print functionality",
+//       "Responsive design for all devices"
+//     ],
+//     "challenges": "Handling complex Bengali text rendering in PDFs, ensuring cross-browser compatibility, and maintaining legal document standards.",
+//     "tech": ["JavaScript", "HTML/CSS", "PDF Generation", "Tailwind"],
+//     "techStack": {
+//       "frontend": ["HTML5", "CSS3", "JavaScript ES6+", "Tailwind CSS"],
+//       "libraries": ["jsPDF", "html2canvas"],
+//       "tools": ["Git", "VS Code"]
+//     },
+//     "duration": "2 months",
+//     "team": "Solo Project",
+//     "learnings": [
+//       "Mastered dynamic PDF generation with complex layouts",
+//       "Learned handling Bengali Unicode characters in PDFs",
+//       "Improved understanding of client requirements and professional communication",
+//       "Gained experience in real-world project delivery and maintenance"
+//     ],
+//     "futureFeatures": [
+//       "Digital signature integration",
+//       "Email automation for deed distribution",
+//       "Multi-language support (English/Bengali toggle)",
+//       "Cloud storage integration for archiving"
+//     ],
+//     "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+//     "links": {
+//       "github": "https://github.com/ramim141",
+//       "live": "https://deed-generator.vercel.app" 
+//     },
+//     "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop",
+//     "featured": false
+//   },
+//   {
+//     "id": 2,
+//     "title": "Tutorly - E-learning Platform",
+//     "category": "Full Stack (Team Project)",
+//     "description": "A comprehensive LMS featuring student enrollment, video playback, quizzes, and assignment tracking. Built with a decoupled architecture using DRF and React.",
+//     "fullDescription": "Tutorly is a full-featured Learning Management System designed to facilitate online education. The platform enables instructors to create courses, upload video content, design quizzes, and track student progress. Students can enroll in courses, watch educational videos, take assessments, and submit assignments. The system features a clean, intuitive interface built with React on the frontend and a robust Django REST Framework backend for API services. Authentication, authorization, and role-based access control ensure secure operations for different user types.",
+//     "features": [
+//       "User authentication and role-based access (Student/Instructor)",
+//       "Course creation and management system",
+//       "Video streaming and playback with progress tracking",
+//       "Interactive quiz system with auto-grading",
+//       "Assignment submission and evaluation",
+//       "Real-time progress dashboard",
+//       "Responsive UI for mobile and desktop"
+//     ],
+//     "challenges": "Implementing video streaming optimization, designing a scalable database schema for course relationships, and ensuring smooth real-time updates.",
+//     "tech": ["Django REST", "React.js", "SQLite", "Axios"],
+//     "techStack": {
+//       "frontend": ["React.js", "React Router", "Axios", "CSS3"],
+//       "backend": ["Django", "Django REST Framework", "SQLite"],
+//       "tools": ["Git", "Postman", "VS Code"]
+//     },
+//     "duration": "3 months",
+//     "team": "Team of 3",
+//     "learnings": [
+//       "Built RESTful APIs with Django REST Framework",
+//       "Implemented token-based authentication (JWT)",
+//       "Learned video streaming optimization techniques",
+//       "Practiced Agile development with team collaboration"
+//     ],
+//     "futureFeatures": [
+//       "Live class integration with WebRTC",
+//       "AI-powered quiz generation",
+//       "Certificate generation system",
+//       "Payment gateway integration"
+//     ],
+//     "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+//     "links": {
+//       "github": "https://github.com/ramim141",
+//       "live": "https://tutorly-lms.vercel.app"
+//     },
+//     "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2000&auto=format&fit=crop",
+//     "featured": false
+//   },
+  
+  
+
+
 ];
 
 // Modal Component

@@ -6,16 +6,16 @@ import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaDownload, FaArrowRight, 
 import { SiPython, SiDjango, SiReact, SiTensorflow } from "react-icons/si"
 import { HiSparkles, HiLightningBolt } from "react-icons/hi"
 
-// --- MOCK DATA ---
+// --- DATA ---
 const heroData = {
   name: "Ramim Ahmed",
-  role: "Software Engineer & Aspiring ML Practitioner",
-  experience_badge: "Full Stack + Data Science",
+  role: "Software Engineer & Aspiring ML Engineer",
+  experience_badge: "Python Developer + ML Engineer",
   description:
     "Merging the strict logic of Algorithms with the intelligence of AI. I build scalable web applications using Django & React while turning raw data into actionable decisions.",
   buttons: {
     primary: { text: "View Projects", link: "#projects" },
-    secondary: { text: "Download CV", link: "/resume.pdf" },
+    secondary: { text: "Download CV (Soon)", link: "/resume.pdf" },
   },
   socials: {
     github: "https://github.com/ramim141",
@@ -61,7 +61,11 @@ const TechIcon = ({ name }) => {
 
 const SocialButton = ({ type, url, index }) => {
   const iconConfig = {
-    github: { icon: <FaGithub className="w-5 h-5" />, hoverBg: "hover:bg-[#333]", shadow: "hover:shadow-[#333]/40" },
+    github: { 
+      icon: <FaGithub className="w-5 h-5" />, 
+      hoverBg: "hover:bg-[#333]", 
+      shadow: "hover:shadow-[#333]/40" 
+    },
     linkedin: {
       icon: <FaLinkedin className="w-5 h-5" />,
       hoverBg: "hover:bg-[#0A66C2]",
@@ -106,9 +110,7 @@ const StatCard = ({ value, label, icon: Icon, gradient, delay }) => (
     whileHover={{ y: -5, scale: 1.02 }}
     className="flex items-center gap-3 p-3 transition-colors border sm:gap-4 sm:p-4 group bg-slate-900/40 backdrop-blur-md border-slate-800/50 rounded-2xl hover:border-slate-600/50"
   >
-    <div
-      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:shadow-xl transition-shadow`}
-    >
+    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:shadow-xl transition-shadow`}>
       <Icon className="w-5 h-5 text-white sm:w-6 sm:h-6" />
     </div>
     <div className="min-w-0">
@@ -427,17 +429,23 @@ const Hero = () => {
             <div className="relative mt-12">
               {/* Desktop View - Show all cards */}
               <div className="justify-center hidden gap-4 sm:flex">
-                <StatCard value="1.3k+" label="Problems" icon={FaCode} gradient="from-cyan-500 to-blue-600" delay={1.2} />
+                <StatCard 
+                  value="1.0k+" 
+                  label="Problems" 
+                  icon={FaCode} 
+                  gradient="from-cyan-500 to-blue-600" 
+                  delay={1.2} 
+                />
                 <StatCard
-                  value="10+"
+                  value="5+"
                   label="Projects"
                   icon={HiLightningBolt}
                   gradient="from-indigo-600 to-purple-600"
                   delay={1.4}
                 />
                 <StatCard
-                  value="Top 5%"
-                  label="LeetCode"
+                  value="Coder"
+                  label="DSA|Algo"
                   icon={HiSparkles}
                   gradient="from-amber-500 to-orange-600"
                   delay={1.6}
@@ -456,11 +464,17 @@ const Hero = () => {
                     className="w-full max-w-[280px]"
                   >
                     {activeStatCard === 0 && (
-                      <StatCard value="1.3k+" label="Problems" icon={FaCode} gradient="from-cyan-500 to-blue-600" delay={0} />
+                      <StatCard 
+                        value="1.0k+" 
+                        label="Problems" 
+                        icon={FaCode} 
+                        gradient="from-cyan-500 to-blue-600" 
+                        delay={0} 
+                      />
                     )}
                     {activeStatCard === 1 && (
                       <StatCard
-                        value="10+"
+                        value="5+"
                         label="Projects"
                         icon={HiLightningBolt}
                         gradient="from-indigo-600 to-purple-600"
@@ -469,8 +483,8 @@ const Hero = () => {
                     )}
                     {activeStatCard === 2 && (
                       <StatCard
-                        value="Top 5%"
-                        label="LeetCode"
+                        value="Coder"
+                        label="DSA|Algo"
                         icon={HiSparkles}
                         gradient="from-amber-500 to-orange-600"
                         delay={0}
