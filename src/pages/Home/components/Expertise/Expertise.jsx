@@ -130,7 +130,7 @@ const Expertise = () => {
                                     {item.title}
                                 </h3>
                                 
-                                <p className="flex-grow mb-6 text-sm leading-relaxed sm:mb-8 sm:text-base text-slate-400">
+                                <p className="flex-grow mb-6 text-sm leading-relaxed  sm:mb-8 sm:text-base text-slate-400">
                                     {item.desc}
                                 </p>
 

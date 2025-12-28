@@ -201,7 +201,7 @@ const Hero = () => {
                   <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-cyan-400"></span>
                   <span className="relative inline-flex w-2 h-2 rounded-full bg-cyan-500"></span>
                 </span>
-                <span className="text-xs font-bold tracking-widest uppercase text-slate-400">
+                <span className="lg:text-[14px] sm: text-[10px] font-bold tracking-widest uppercase text-slate-400">
                   {heroData.experience_badge}
                 </span>
               </div>
@@ -461,7 +461,7 @@ const Hero = () => {
                     animate={{ opacity: 1, scale: 1.05, x: 0 }}
                     exit={{ opacity: 0, scale: 0.8, x: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full max-w-[280px]"
+                    className="w-full max-w-[200px] justify-items-center"
                   >
                     {activeStatCard === 0 && (
                       <StatCard 

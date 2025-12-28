@@ -4,6 +4,7 @@ import { FaGithub, FaExternalLinkAlt, FaStar, FaTimes, FaYoutube, FaInfoCircle, 
 import { BiTimeFive, BiCodeBlock } from 'react-icons/bi';
 import { HiSparkles } from 'react-icons/hi';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
+import Kishorkontho_project_thum from '../../../../assets/images/project/kishorkonto.png';
 
 // Project Data
 const projectData = [
@@ -17,15 +18,22 @@ const projectData = [
         "fullDescription": "The Kishorekonto Medhabritti Result Management System is built to streamline the result publishing process for the Sylhet West Zone. It replaces manual result checking with a digital solution. Students can input their roll numbers to instantly view their marks and merit status. The platform ensures data accuracy and provides an administrative panel for organizers to upload and manage student data efficiently.",
         "features": [
             "Student result search by Roll Number",
-            "Admin dashboard for data management",
             "Merit list and mark sheet generation",
             "Responsive design for mobile and desktop access",
-            "Fast and secure data retrieval"
+            "Fast and secure data retrieval",
+            "Merit list generation",
+            "Organization all information panel",
+            "Library sorting and filtering",
+            "FAQ section for student queries",
+            "Contact form for support",
+            "Downloadable PDF mark sheets and Print option",
+            "Notice board for announcements",
+            "Past year result archive",
         ],
         "challenges": "Handling large datasets of student results efficiently, ensuring 100% accuracy in result display, and optimizing search performance to handle traffic during result publication.",
-        "tech": ["React.js", "Tailwind CSS", "DRF", "MySQL", "Vercel"],
+        "tech": ["React.js", "Tailwind", "DRF", "MySQL", "Vercel"],
         "techStack": {
-            "frontend": ["React.js", "Tailwind CSS", "Vite/React-App"],
+            "frontend": ["React.js", "Tailwind", "Vite/React-App"],
             "backend": ["DRF", "API", "MySQL", "ORM"],
             "tools": ["Git", "VS Code", "Vercel"]
         },
@@ -41,15 +49,7 @@ const projectData = [
             "Experience in deploying React apps on Vercel"
         ],
         "futureFeatures": [
-            "Search results by exam roll number",
-            "Merit list generation",
-            "Organization all information panel",
-            "Library sorting and filtering",
-            "FQA section for student queries",
-            "Contact form for support",
-            "Downloadable PDF mark sheets and Print option",
-            "Notice board for announcements",
-            "Past year result archive",
+            "Admin dashboard for data management",
             "Overall statistic and analytics of results"
         ],
         "youtubeVideo": "",
@@ -57,7 +57,7 @@ const projectData = [
             "github": "https://github.com/ramim141/kishorkhonto-medabritti-result-management-system",
             "live": "https://kksylwest.vercel.app/"
         },
-        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2000&auto=format&fit=crop",
+        "image": Kishorkontho_project_thum,
         "featured": true
     }, 
 
@@ -79,13 +79,13 @@ const projectData = [
             "Product reviews and ratings",
             "Discount coupons and promotional offers",
             "Product search and filtering",
-            "Responsive design with Tailwind CSS",
+            "Responsive design with Tailwind",
             "SQLite database with Django ORM"
         ],
         "challenges": "Implementing secure session-based cart management, handling inventory updates in real-time, and creating an intuitive admin interface.",
-        "tech": ["Django MVT", "Tailwind CSS", "SQLite", "ORM"],
+        "tech": ["Django MVT", "Tailwind", "SQLite", "ORM"],
         "techStack": {
-            "frontend": ["Django Templates", "Tailwind CSS", "JavaScript"],
+            "frontend": ["Django Templates", "Tailwind", "JavaScript"],
             "backend": ["Django MVT", "SQLite", "Django ORM"],
             "tools": ["Git", "Django Admin"]
         },
@@ -138,7 +138,7 @@ const projectData = [
         "challenges": "Handling large file uploads efficiently, implementing secure file access control, and designing complex database relationships for categorization.",
         "tech": ["Django REST", "React.js", "PostgreSQL", "JWT"],
         "techStack": {
-            "frontend": ["React.js", "Axios", "React Router", "Tailwind CSS"],
+            "frontend": ["React.js", "Axios", "React Router", "Tailwind"],
             "backend": ["Django REST Framework", "SQLite", "JWT Authentication", "WebSockets"],
             "tools": ["Git", "pgAdmin", "Postman"]
         },
@@ -648,7 +648,7 @@ const Projects = () => {
                             <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-cyan-400"></span>
                             <span className="relative inline-flex w-2 h-2 rounded-full bg-cyan-500"></span>
                         </span>
-                        <span className="text-xs font-bold tracking-widest uppercase text-slate-400">Case Studies</span>
+                        <span className="text-[10px] font-bold tracking-widest uppercase  sm:text-xs text-slate-400">Case Studies</span>
                     </div>
 
                     <h2 className="mb-4 text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -705,25 +705,29 @@ const Projects = () => {
                                 
                                 {/* Category Tag */}
                                 <div className="mb-4">
-                                    <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest uppercase border rounded-full text-cyan-400 bg-cyan-500/10 border-cyan-500/30">
-                                        {project.category}
-                                    </span>
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 text-[10px] lg:text-xs font-bold tracking-widest uppercase border rounded-full text-cyan-400 bg-cyan-500/10 border-cyan-500/30">
+                                        <div className="relative flex w-2 h-2">
+                                            <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-cyan-400"></span>
+                                            <span className="relative inline-flex w-2 h-2 rounded-full bg-cyan-500"></span>
+                                        </div>
+                                        <span>{project.category}</span>
+                                    </div>
                                 </div>
 
-                                <h3 className="mb-4 text-2xl font-bold text-white transition-colors md:text-3xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500">
+                                <h3 className="mb-4 text-lg font-bold text-white transition-colors sm:text-xl md:text-2xl lg:text-3xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500">
                                     {project.title}
                                 </h3>
                                 
-                                <p className="flex-grow mb-6 leading-relaxed text-slate-400 group-hover:text-slate-300">
+                                <p className="flex-grow mb-6 text-sm leading-relaxed sm:text-base text-slate-400 group-hover:text-slate-300">
                                     {project.description}
                                 </p>
 
                                 {/* Tech Stack Pills */}
-                                <div className="flex flex-wrap gap-2 pb-6 mb-6 border-b border-slate-700/50">
+                                <div className="grid grid-cols-3 gap-1.5 pb-6 mb-6 border-b md:grid-cols-3 md:gap-2 lg:grid-cols-5 place-items-center border-slate-700/50">
                                     {project.tech.map((t, i) => (
                                         <span 
                                             key={i} 
-                                            className="px-3 py-1.5 text-xs font-semibold transition-colors border rounded-lg bg-slate-800/80 text-slate-300 border-slate-700/50 group-hover:border-slate-600 group-hover:bg-slate-800"
+                                            className="w-full px-2 py-1 text-[10px] md:px-3 md:py-1.5 md:text-xs font-semibold text-center transition-colors border rounded-lg bg-slate-800/80 text-slate-300 border-slate-700/50 group-hover:border-slate-600 group-hover:bg-slate-800"
                                         >
                                             {t}
                                         </span>
@@ -731,29 +735,29 @@ const Projects = () => {
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex gap-2 sm:gap-3">
                                     <button
                                         onClick={() => setSelectedProject(project)}
-                                        className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold transition-all rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
+                                        className="flex items-center justify-center gap-2 px-3 py-2.5 sm:px-5 text-sm font-bold transition-all rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
                                     >
-                                        <FaInfoCircle size={16} /> View Details
+                                        <FaInfoCircle size={16} /> <span>View Details</span>
                                     </button>
                                     <a 
                                         href={project.links.github} 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold transition-all border rounded-lg bg-slate-800/80 text-slate-200 border-slate-700 hover:border-cyan-500 hover:text-cyan-400 hover:bg-slate-800"
+                                        className="flex items-center justify-center gap-2 px-3 py-2.5 sm:px-5 text-sm font-bold transition-all border rounded-lg bg-slate-800/80 text-slate-200 border-slate-700 hover:border-cyan-500 hover:text-cyan-400 hover:bg-slate-800"
                                     >
-                                        <FaGithub size={18} /> Code
+                                        <FaGithub size={18} /> <span className="hidden sm:inline">Code</span>
                                     </a>
                                     {project.links.live && project.links.live !== "#" && (
                                         <a 
                                             href={project.links.live} 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold transition-all border rounded-lg bg-slate-800/80 text-slate-200 border-slate-700 hover:border-green-500 hover:text-green-400 hover:bg-slate-800"
+                                            className="flex items-center justify-center gap-2 px-3 py-2.5 sm:px-5 text-sm font-bold transition-all border rounded-lg bg-slate-800/80 text-slate-200 border-slate-700 hover:border-green-500 hover:text-green-400 hover:bg-slate-800"
                                         >
-                                            <FaExternalLinkAlt size={16} /> Live
+                                            <FaExternalLinkAlt size={16} /> <span className="hidden sm:inline">Live</span>
                                         </a>
                                     )}
                                 </div>
@@ -783,7 +787,7 @@ const Projects = () => {
             </div>
 
             {/* Modal */}
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
                 {selectedProject && (
                     <ProjectModal 
                         project={selectedProject} 
