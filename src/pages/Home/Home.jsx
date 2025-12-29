@@ -20,9 +20,10 @@ const Home = () => {
             <main className="min-h-screen bg-dark">
                 <Hero />
                 <Expertise />
+                <Programming />
                 <Projects />
                 <About />
-                <Programming />
+                
                 <Content /> 
                 <Blog />
                 <Footer />

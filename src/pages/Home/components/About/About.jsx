@@ -90,12 +90,7 @@ const About = () => {
                     transition={{ duration: 0.6 }}
                     className="mb-12 sm:mb-16 md:mb-20"
                 >
-                    <div className="flex items-center gap-2 mb-6 sm:gap-3 sm:mb-8 md:mb-10">
-                        <div className="p-2 rounded-lg shadow-lg sm:p-3 sm:rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-cyan-500/30">
-                            <FaGraduationCap className="text-lg text-white sm:text-xl md:text-2xl" />
-                        </div>
-                        <h3 className="text-xl font-black text-transparent sm:text-2xl md:text-3xl bg-clip-text bg-gradient-to-r from-white to-slate-300">Academic Background</h3>
-                    </div>
+                    
 
                     <div className="relative pl-6 ml-1 space-y-6 border-l-2 sm:pl-10 md:pl-12 sm:ml-2 sm:space-y-8 md:space-y-10 border-slate-700/50">
                         {aboutData.education.map((edu, index) => (
@@ -171,7 +166,7 @@ const About = () => {
                 </motion.div>
 
             </div>
-            <ScrollIndicator label="Coding Profiles" />
+            <ScrollIndicator label="Content & Teaching" />
         </section>
     );
 };

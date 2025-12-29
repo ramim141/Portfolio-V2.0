@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaDownload, FaArrowRight, FaCode, FaPlay } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaDownload, FaArrowRight, FaCode, FaPlay, FaFacebook } from "react-icons/fa"
 import { SiPython, SiDjango, SiReact, SiTensorflow } from "react-icons/si"
 import { HiSparkles, HiLightningBolt } from "react-icons/hi"
 
@@ -20,8 +20,10 @@ const heroData = {
   socials: {
     github: "https://github.com/ramim141",
     linkedin: "https://linkedin.com/in/ramim-ahmed",
-    youtube: "https://youtube.com/@codewithramuu",
+    
     email: "mailto:ahramu584@gmail.com",
+    facebook: "https://facebook.com/ramim.ahmed.14", 
+    youtube: "https://youtube.com/@codewithramuu",
   },
 }
 
@@ -71,15 +73,21 @@ const SocialButton = ({ type, url, index }) => {
       hoverBg: "hover:bg-[#0A66C2]",
       shadow: "hover:shadow-[#0A66C2]/40",
     },
-    youtube: {
-      icon: <FaYoutube className="w-5 h-5" />,
-      hoverBg: "hover:bg-[#FF0000]",
-      shadow: "hover:shadow-[#FF0000]/40",
-    },
+    
     email: {
       icon: <FaEnvelope className="w-5 h-5" />,
       hoverBg: "hover:bg-cyan-600",
       shadow: "hover:shadow-cyan-600/40",
+    },
+    facebook: {
+      icon: <FaFacebook className="w-5 h-5" />,
+      hoverBg: "hover:bg-[#1877F2]",
+      shadow: "hover:shadow-[#1877F2]/40",
+    },
+    youtube: {
+      icon: <FaYoutube className="w-5 h-5" />,
+      hoverBg: "hover:bg-[#FF0000]",
+      shadow: "hover:shadow-[#FF0000]/40",
     },
   }
 

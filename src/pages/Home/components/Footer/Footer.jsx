@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import FooterScrollTopIcon from '../../../../components/ui/FooterScrollTopIcon';
-import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaHeart, FaCode, FaRocket } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaHeart, FaCode, FaRocket, FaFacebook } from 'react-icons/fa';
 import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi';
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
     { 
       name: 'GitHub', 
       icon: FaGithub, 
-      url: 'https://github.com/ramim-ahmed',
+      url: 'https://github.com/ramim141',
       color: 'hover:text-gray-400'
     },
     { 
@@ -23,15 +23,21 @@ const Footer = () => {
     { 
       name: 'YouTube', 
       icon: FaYoutube, 
-      url: 'https://youtube.com/@ramimahmed',
+      url: 'https://youtube.com/@codewithramuu',
       color: 'hover:text-red-500'
     },
     { 
       name: 'Email', 
       icon: FaEnvelope, 
-      url: 'mailto:ramim@example.com',
+      url: 'mailto:ahramu584@gmail.com',
       color: 'hover:text-primary'
     },
+    {
+      name: "Facebook",
+      icon: FaFacebook,
+      url: "https://facebook.com/ramim141",
+      color: "hover:text-blue-600"
+    }
   ];
 
   const quickLinks = [
@@ -68,34 +74,34 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative bg-dark border-t border-darkLight overflow-hidden">
+    <footer className="relative overflow-hidden border-t bg-dark border-darkLight">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 rounded-full left-1/4 w-96 h-96 bg-primary/20 filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-0 rounded-full right-1/4 w-96 h-96 bg-secondary/20 filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
 
       <motion.div 
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+        className="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-2 lg:grid-cols-4">
           
           {/* Brand Section */}
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <FaCode className="text-white text-xl" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary">
+                <FaCode className="text-xl text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Ramim Ahmed</h3>
+              <h3 className="text-3xl font-extrabold text-white">Ramim Ahmed</h3>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-gray-400">
               Software Engineer crafting innovative solutions with Python, Django, React, and Machine Learning.
             </p>
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
               <FaRocket className="text-primary" />
               <span>Building the future, one line at a time</span>
             </div>
@@ -103,7 +109,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="text-lg font-semibold text-white flex items-center gap-2">
+            <h4 className="flex items-center gap-2 text-lg font-semibold text-white">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -111,7 +117,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="text-gray-400 hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group"
+                    className="flex items-center gap-2 text-sm text-gray-400 transition-colors duration-300 hover:text-primary group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary transition-all duration-300"></span>
                     {link.name}
@@ -125,18 +131,18 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <HiMail className="text-primary text-lg" />
-                <a href="mailto:ramim@example.com" className="hover:text-primary transition-colors">
-                  ramim@example.com
+              <li className="flex items-center gap-3 text-sm text-gray-400">
+                <HiMail className="text-lg text-primary" />
+                <a href="mailto:ahramu584@gmail.com" className="transition-colors hover:text-primary">
+                  ahramu584@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <HiLocationMarker className="text-primary text-lg" />
-                <span>Dhaka, Bangladesh</span>
+              <li className="flex items-center gap-3 text-sm text-gray-400">
+                <HiLocationMarker className="text-lg text-primary" />
+                <span>Sylhet, Bangladesh</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <HiPhone className="text-primary text-lg" />
+              <li className="flex items-center gap-3 text-sm text-gray-400">
+                <HiPhone className="text-lg text-primary" />
                 <span>Available for freelance</span>
               </li>
             </ul>
@@ -145,7 +151,7 @@ const Footer = () => {
           {/* Social Links */}
           <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Connect With Me</h4>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="mb-4 text-sm text-gray-400">
               Let's build something amazing together!
             </p>
             <div className="flex gap-4">
@@ -175,18 +181,18 @@ const Footer = () => {
           variants={itemVariants}
           className="pt-8 mt-8 border-t border-darkLight"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm flex items-center gap-2">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="flex items-center gap-2 text-sm text-gray-400">
               © {currentYear} Ramim Ahmed. Made with
               <FaHeart className="text-red-500 animate-pulse" />
               and
               <FaCode className="text-primary" />
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#privacy" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#privacy" className="text-gray-400 transition-colors hover:text-primary">
                 Privacy Policy
               </a>
-              <a href="#terms" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#terms" className="text-gray-400 transition-colors hover:text-primary">
                 Terms of Service
               </a>
             </div>
@@ -197,7 +203,7 @@ const Footer = () => {
         {showScroll && (
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed z-50 bottom-8 right-8 w-16 h-16 p-0 bg-transparent rounded-full flex items-center justify-center shadow-lg hover:shadow-primary/50 transition-all duration-300 group"
+            className="fixed z-50 flex items-center justify-center w-16 h-16 p-0 transition-all duration-300 bg-transparent rounded-full shadow-lg bottom-8 right-8 hover:shadow-primary/50 group"
             whileHover={{ scale: 1.1, rotate: 360 }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0, scale: 0 }}

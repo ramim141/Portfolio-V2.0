@@ -4,11 +4,27 @@ import { FaGithub, FaExternalLinkAlt, FaStar, FaTimes, FaYoutube, FaInfoCircle, 
 import { BiTimeFive, BiCodeBlock } from 'react-icons/bi';
 import { HiSparkles } from 'react-icons/hi';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
-import Kishorkontho_project_thum from '../../../../assets/images/project/kishorkonto.png';
-import Foodzy_project_thum from '../../../../assets/images/project/foodzy.png';
+
+
 import NoteBank_project_thum from '../../../../assets/images/project/notebank.png';
-import NoteBank_project_thum_2 from '../../../../assets/images/project/notebank_slider_img_2.png';
-import NoteBank_project_thum_3 from '../../../../assets/images/project/notebank_slider_img_3.png';
+import NoteBank_slider_2 from '../../../../assets/images/project/notebank_slider_img_2.png';
+import NoteBank_slider_3 from '../../../../assets/images/project/notebank_slider_img_2.png';
+import NoteBank_slider_4 from '../../../../assets/images/project/notebank_slider_img_2.png';
+// import NoteBank_slider_5 from '../../../../assets/images/project/notebank_slider_img_5.png';
+
+
+
+import Kishorkontho_project_thumb from '../../../../assets/images/project/kishorkonto.png';
+import kishorkonto_thumb_2 from '../../../../assets/images/project/kishorkonto_thumb_2.png';
+import kishorkonto_thumb_3 from '../../../../assets/images/project/kishorkonto_thumb_3.png';
+import kishorkonto_thumb_4 from '../../../../assets/images/project/kishorkonto_thumb_4.png';
+import kishorkonto_thumb_5 from '../../../../assets/images/project/kishorkonto_thumb_5.png';
+
+import Foodzy_project_thum from '../../../../assets/images/project/foodzy.png';
+import Foodyzy_2 from '../../../../assets/images/project/foodzy_2.png';
+import Foodyzy_3 from '../../../../assets/images/project/foodzy_3.png';
+import Foodyzy_4 from '../../../../assets/images/project/foodzy_4.png';
+import Foodyzy_5 from '../../../../assets/images/project/foodzy_5.png';
 
 // Project Data
 const projectData = [
@@ -61,7 +77,7 @@ const projectData = [
             "github": "https://github.com/ramim141/kishorkhonto-medabritti-result-management-system",
             "live": "https://kksylwest.vercel.app/"
         },
-        "images": [Kishorkontho_project_thum, Kishorkontho_project_thum, Kishorkontho_project_thum],
+        "images": [Kishorkontho_project_thumb, kishorkonto_thumb_2, kishorkonto_thumb_3, kishorkonto_thumb_4, kishorkonto_thumb_5],
         "featured": true
     }, 
 
@@ -117,7 +133,7 @@ const projectData = [
             "github": "https://github.com/ramim141/foodzy",
             "live": "https://foodzy-organic.vercel.app"
         },
-        "images": [Foodzy_project_thum, Foodzy_project_thum, Foodzy_project_thum],
+        "images": [Foodzy_project_thum, Foodyzy_2, Foodyzy_3, Foodyzy_4, Foodyzy_5],
         "featured": false
     },
     
@@ -169,7 +185,7 @@ const projectData = [
             "github": "https://github.com/ramim141",
             "live": "#"
         },
-        "images": [NoteBank_project_thum, NoteBank_project_thum_2, NoteBank_project_thum_3],
+        "images": [NoteBank_project_thum, NoteBank_slider_2, NoteBank_slider_3, NoteBank_slider_4],
         "featured": false
     },
     

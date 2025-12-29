@@ -151,7 +151,7 @@ const Blog = () => {
                 </div>
 
             </div>
-            <ScrollIndicator label="Connect With Me" />
+            
         </section>
     );
 };

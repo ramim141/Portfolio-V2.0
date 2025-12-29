@@ -43,6 +43,30 @@ const leetcodeData = {
     topPercentage: 15
 };
 
+// Total Stats Summary Data
+const totalStats = [
+    {
+        value: '1004+',
+        label: 'Total Problems Solved (overall)',
+        gradient: 'from-cyan-400 to-blue-500',
+    },
+    {
+        value: '76+',
+        label: 'Total Contests',
+        gradient: 'from-orange-400 to-red-500',
+    },
+    {
+        value: '3',
+        label: 'Active Platforms',
+        gradient: 'from-green-400 to-emerald-500',
+    },
+    {
+        value: '3+ Years',
+        label: 'Programming Journey',
+        gradient: 'from-purple-400 to-pink-500',
+    },
+];
+
 const Programming = () => {
     const loading = false;
 
@@ -156,7 +180,7 @@ const Programming = () => {
                                         href={`https://codeforces.com/profile/${CODEFORCES_HANDLE}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border shadow-lg bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl border-blue-500/30 hover:shadow-blue-500/50 hover:scale-105"
+                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/70 hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-cyan-600"
                                     >
                                         View Profile
                                     </a>
@@ -171,19 +195,19 @@ const Programming = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative p-8 overflow-hidden transition-all duration-300 border shadow-xl bg-gradient-to-br from-slate-800/60 to-slate-800/30 rounded-2xl border-slate-700/50 hover:border-orange-500/40 hover:shadow-orange-500/20 backdrop-blur-sm group"
+                        className="relative p-8 overflow-hidden transition-all duration-300 border shadow-xl bg-gradient-to-br from-slate-800/60 to-slate-800/30 rounded-2xl border-slate-700/50 hover:border-amber-500/40 hover:shadow-amber-500/20 backdrop-blur-sm group"
                     >
                         {/* Glow Effect */}
-                        <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 group-hover:opacity-100"></div>
+                        <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-amber-500/10 to-amber-600/10 group-hover:opacity-100"></div>
                         
                         <div className="relative z-10">
-                            {/* Icon */}
+                            {/* Icon - CodeChef Brown/Maroon Theme */}
                             <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 transition-all duration-300 shadow-lg bg-gradient-to-br from-orange-500 to-yellow-600 rounded-xl shadow-orange-500/30 group-hover:scale-110">
+                                <div className="p-4 transition-all duration-300 shadow-lg bg-gradient-to-br from-amber-600 to-amber-800 rounded-xl shadow-amber-500/30 group-hover:scale-110">
                                     <SiCodechef className="text-3xl text-white" />
                                 </div>
                                 {loading && (
-                                    <div className="w-6 h-6 border-2 border-orange-500 rounded-full animate-spin border-t-transparent"></div>
+                                    <div className="w-6 h-6 border-2 rounded-full border-amber-500 animate-spin border-t-transparent"></div>
                                 )}
                             </div>
 
@@ -195,9 +219,9 @@ const Programming = () => {
                                     <div className="p-5 border rounded-xl bg-slate-800/50 border-slate-700/50">
                                         <div className="flex items-center justify-between mb-3">
                                             <span className="text-sm font-semibold text-slate-400">Current Rating</span>
-                                            <span className="text-lg text-yellow-400">{codechefData.stars}</span>
+                                            <span className="text-lg text-amber-400">{codechefData.stars}</span>
                                         </div>
-                                        <p className="mb-1 text-4xl font-black text-orange-400">
+                                        <p className="mb-1 text-4xl font-black text-amber-400">
                                             {codechefData.rating}
                                         </p>
                                         <p className="text-sm font-medium text-slate-400">
@@ -219,12 +243,12 @@ const Programming = () => {
                                         </p>
                                     </div>
 
-                                    {/* Profile Link */}
+                                    {/* Profile Link - CodeChef Brown Theme */}
                                     <a
                                         href={`https://www.codechef.com/users/${CODECHEF_HANDLE}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border shadow-lg bg-gradient-to-r from-orange-600 to-yellow-600 rounded-xl border-orange-500/30 hover:shadow-orange-500/50 hover:scale-105"
+                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/70 hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-amber-600 group-hover:to-amber-800"
                                     >
                                         View Profile
                                     </a>
@@ -239,19 +263,19 @@ const Programming = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative p-8 overflow-hidden transition-all duration-300 border shadow-xl bg-gradient-to-br from-slate-800/60 to-slate-800/30 rounded-2xl border-slate-700/50 hover:border-yellow-500/40 hover:shadow-yellow-500/20 backdrop-blur-sm group"
+                        className="relative p-8 overflow-hidden transition-all duration-300 border shadow-xl bg-gradient-to-br from-slate-800/60 to-slate-800/30 rounded-2xl border-slate-700/50 hover:border-[#FFA116]/40 hover:shadow-[#FFA116]/20 backdrop-blur-sm group"
                     >
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 group-hover:opacity-100"></div>
+                        {/* Glow Effect - LeetCode Orange */}
+                        <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-[#FFA116]/10 to-[#1A1A1A]/10 group-hover:opacity-100"></div>
                         
                         <div className="relative z-10">
-                            {/* Icon */}
+                            {/* Icon - LeetCode Signature Orange/Dark Theme */}
                             <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 transition-all duration-300 shadow-lg bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl shadow-yellow-500/30 group-hover:scale-110">
-                                    <SiLeetcode className="text-3xl text-white" />
+                                <div className="p-4 transition-all duration-300 shadow-lg bg-gradient-to-br from-[#FFA116] to-[#FF8C00] rounded-xl shadow-[#FFA116]/30 group-hover:scale-110">
+                                    <SiLeetcode className="text-3xl text-[#1A1A1A]" />
                                 </div>
                                 {loading && (
-                                    <div className="w-6 h-6 border-2 border-yellow-500 rounded-full animate-spin border-t-transparent"></div>
+                                    <div className="w-6 h-6 border-2 border-[#FFA116] rounded-full animate-spin border-t-transparent"></div>
                                 )}
                             </div>
 
@@ -263,9 +287,9 @@ const Programming = () => {
                                     <div className="p-5 border rounded-xl bg-slate-800/50 border-slate-700/50">
                                         <div className="flex items-center justify-between mb-3">
                                             <span className="text-sm font-semibold text-slate-400">Contest Rating</span>
-                                            <FaStar className="text-lg text-yellow-400" />
+                                            <FaStar className="text-lg text-[#FFA116]" />
                                         </div>
-                                        <p className="mb-1 text-4xl font-black text-yellow-400">
+                                        <p className="mb-1 text-4xl font-black text-[#FFA116]">
                                             {leetcodeData.contestRating}
                                         </p>
                                         <p className="text-sm font-medium text-slate-400">
@@ -275,20 +299,19 @@ const Programming = () => {
 
                                     {/* Total Solved with Difficulty */}
                                     <div className="p-5 border rounded-xl bg-slate-800/50 border-slate-700/50">
-                                       
                                         <div className="pt-4 border-slate-700/50">
                                             <p className="mb-3 text-xs font-semibold tracking-wider uppercase text-slate-500">By Difficulty</p>
                                             <div className="grid grid-cols-3 gap-3 mb-4">
                                                 <div className="text-center">
-                                                    <p className="mb-1 text-2xl font-black text-green-400">{leetcodeData.easySolved}</p>
+                                                    <p className="mb-1 text-2xl font-black text-[#00B8A3]">{leetcodeData.easySolved}</p>
                                                     <p className="text-xs font-medium text-slate-400">Easy</p>
                                                 </div>
                                                 <div className="text-center">
-                                                    <p className="mb-1 text-2xl font-black text-yellow-400">{leetcodeData.mediumSolved}</p>
+                                                    <p className="mb-1 text-2xl font-black text-[#FFC01E]">{leetcodeData.mediumSolved}</p>
                                                     <p className="text-xs font-medium text-slate-400">Medium</p>
                                                 </div>
                                                 <div className="text-center">
-                                                    <p className="mb-1 text-2xl font-black text-red-400">{leetcodeData.hardSolved}</p>
+                                                    <p className="mb-1 text-2xl font-black text-[#FF375F]">{leetcodeData.hardSolved}</p>
                                                     <p className="text-xs font-medium text-slate-400">Hard</p>
                                                 </div>
                                             </div>
@@ -298,12 +321,12 @@ const Programming = () => {
                                         </div>
                                     </div>
 
-                                    {/* Profile Link */}
+                                    {/* Profile Link - LeetCode Signature Colors (Same as Icon BG) */}
                                     <a
                                         href={`https://leetcode.com/${LEETCODE_HANDLE}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border shadow-lg bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl border-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105"
+                                        className="block w-full px-4 py-3 mt-2 text-sm font-bold text-center text-white transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/70 hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-[#FFA116] group-hover:to-[#FF8C00] group-hover:text-[#1A1A1A]"
                                     >
                                         View Profile
                                     </a>
@@ -322,34 +345,18 @@ const Programming = () => {
                     className="p-8 mt-12 overflow-hidden border shadow-xl bg-gradient-to-br from-slate-800/60 to-slate-800/30 rounded-2xl border-slate-700/50 backdrop-blur-sm"
                 >
                     <div className="grid gap-6 md:grid-cols-4">
-                        <div className="text-center">
-                            <p className="mb-2 text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                                1004+
-                            </p>
-                            <p className="text-sm font-medium text-slate-400">Total Problems Solved (overall)</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="mb-2 text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-                                76+
-                            </p>
-                            <p className="text-sm font-medium text-slate-400">Total Contests</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="mb-2 text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
-                                4
-                            </p>
-                            <p className="text-sm font-medium text-slate-400">Active Platforms</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="mb-2 text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-                                3+ Years
-                            </p>
-                            <p className="text-sm font-medium text-slate-400">Programming Journey</p>
-                        </div>
+                        {totalStats.map((stat, idx) => (
+                            <div className="text-center" key={idx}>
+                                <p className={`mb-2 text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${stat.gradient}`}>
+                                    {stat.value}
+                                </p>
+                                <p className="text-sm font-medium text-slate-400">{stat.label}</p>
+                            </div>
+                        ))}
                     </div>
                 </motion.div>
             </div>
-            <ScrollIndicator label="Content & More" />
+            <ScrollIndicator label="Projects Story" />
         </section>
     );
 };

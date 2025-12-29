@@ -6,10 +6,10 @@ import ScrollIndicator from '../../../../components/ScrollIndicator';
 // Import playlist thumbnail images
 import dataStructureThumb from '../../../../assets/images/content/Data Structure.png';
 import cProgrammingThumb from '../../../../assets/images/content/C_programming.png';
-import databaseThumb from '../../../../assets/images/content/Data Structure.png';
-import machineLearningThumb from '../../../../assets/images/content/Data Structure.png';
+import databaseThumb from '../../../../assets/images/content/dbms.jpg';
+import machineLearningThumb from '../../../../assets/images/content/machine_learning.jpg';
 import microprocessorThumb from '../../../../assets/images/content/Data Structure.png';
-import statisticsThumb from '../../../../assets/images/content/Data Structure.png';
+import statisticsThumb from '../../../../assets/images/content/bsp.png';
 
 // Content Data
 const contentData = {

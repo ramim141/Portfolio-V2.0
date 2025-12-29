@@ -4,53 +4,60 @@ import { FaServer, FaBrain, FaLaptopCode } from 'react-icons/fa'; // Changed ico
 import { SiCodeforces, SiDjango, SiPytorch } from 'react-icons/si';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
 
+
+// --- Key Stats for Easy Maintenance ---
+const codechefMaxRating = 1636;
+const codeforcesMaxRating = 1322;
+const leetcodeSolved = 120;
+const cpSummary = `Max Rating ${codechefMaxRating} (CodeChef) & ${codeforcesMaxRating} (Codeforces), LeetCode ${leetcodeSolved}+ problems solved`;
+
 // Enhanced Data based on CV
 const expertiseData = [
-  {
-    "id": 1,
-    "title": "Backend Architecture",
-    "stat": "2+ Production Web Solutions",
-    "desc": "Designing scalable RESTful APIs with Django & DRF. Specialized in complex database schemas (MySQL), authentication (JWT), and asynchronous tasks using Celery.",
-    "icon": "backend",
-    "skills": ["Django","Django REST", "MySQL", "Celery", "JWT"],
-    "color": "from-cyan-400 to-blue-600"
-  },
-  {
-    "id": 2,
-    "title": "Frontend Development",
-    "stat": "5+ Projects Deployed",
-    "desc": "Building responsive and dynamic UI using React.js. Experienced in integrating frontend with backend services, state management, and optimizing performance for better user experience.",
-    "icon": "frontend",
-    "skills": ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
-    "color": "from-green-400 to-emerald-500"
-  },
-  {
-    "id": 3,
-    "title": "Competitive Programming",
-    "stat": "1004+ Problems Solved",
-    "desc": "Consistent competitive programmer with Max Rating 1636 (CodeChef) & 1269 (Codeforces), LeetCode 150+ problems solved. Regular participant in contests with focus on optimization and Time & Space Complexity analysis.",
-    "icon": "cp",
-    "skills": [ "C","C++", "Algorithms", "Data Structures", "STL", "LeetCode", "Codeforces", "CodeChef"],
-    "color": "from-purple-500 to-pink-500"
-  },
-  {
-    "id": 4,
-    "title": "Core CS Fundamentals",
-    "stat": "Strong Theoretical Foundation",
-    "desc": "In-depth understanding of Data Structures, Algorithms,Object-oriented programming, Database Management System, Operating Systems. Applied these concepts in real-world projects to enhance efficiency and performance.",
-    "icon": "fundamentals",
-    "skills": ["Data Structures", "Algorithms", "OOP",  "DBMS", "OS Concepts", "Software Design", "Machine Learning", "Computer Networks"],
-    "color": "from-indigo-400 to-purple-600"
-  },
-  {
-    "id": 5,
-    "title": "Basic Data Science & AI/ML",
-    "stat": "Certified by IICT, SUST",
-    "desc": "Transforming raw data into actionable insights using Python's data stack. Experienced in training ML models, statistical analysis, and visualization under the EDGE Project.",
-    "icon": "ai",
-    "skills": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
-    "color": "from-amber-400 to-orange-500"
-  }
+    {
+        id: 1,
+        title: "Backend Architecture",
+        stat: "2+ Production Web Solutions",
+        desc: "Designing scalable RESTful APIs with Django & Django Rest Framework. Specialized in complex database schemas (MySQL), authentication (JWT), and asynchronous tasks using Celery.",
+        icon: "backend",
+        skills: ["Django","Django REST", "MySQL", "Celery", "JWT"],
+        color: "from-cyan-400 to-blue-600"
+    },
+    {
+        id: 2,
+        title: "Frontend Development",
+        stat: "5+ Projects Deployed",
+        desc: "Building responsive and dynamic UI using HTML, TailwindCSS, JS and React.js. Experienced in integrating frontend with backend services, state management, and optimizing performance for better user experience.",
+        icon: "frontend",
+        skills: ["React", "JavaScript", "Tailwind", "HTML5", "CSS3"],
+        color: "from-green-400 to-emerald-500"
+    },
+    {
+        id: 3,
+        title: "Competitive Programming",
+        stat: "1004+ Problems Solved",
+        desc: `Consistent competitive programmer with ${cpSummary}. Regular participant in contests with focus on optimization and Time & Space Complexity analysis.`,
+        icon: "cp",
+        skills: [ "C","C++", "Algorithms", "Data Structures", "STL", "LeetCode", "Codeforces", "CodeChef"],
+        color: "from-purple-500 to-pink-500"
+    },
+    {
+        id: 4,
+        title: "Core CS Fundamentals",
+        stat: "Strong Theoretical Foundation",
+        desc: "In-depth understanding of Data Structures, Algorithms,Object-oriented programming, Database Management System, Operating Systems. Applied these concepts in real-world projects to enhance efficiency and performance.",
+        icon: "fundamentals",
+        skills: ["Data Structures", "Algorithms", "OOP",  "DBMS", "OS Concepts", "Software Design", "Machine Learning", "Computer Networks"],
+        color: "from-indigo-400 to-purple-600"
+    },
+    {
+        id: 5,
+        title: "Basic Data Science & AI/ML",
+        stat: "Certified by IICT, SUST",
+        desc: "Transforming raw data into actionable insights using Python's data stack. Experienced in training ML models, statistical analysis, and visualization under the EDGE Project.",
+        icon: "ai",
+        skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+        color: "from-amber-400 to-orange-500"
+    }
 ];
 
 // Icon Helper
@@ -130,7 +137,7 @@ const Expertise = () => {
                                     {item.title}
                                 </h3>
                                 
-                                <p className="flex-grow mb-6 text-sm leading-relaxed  sm:mb-8 sm:text-base text-slate-400">
+                                <p className="flex-grow mb-6 text-sm leading-relaxed sm:mb-8 sm:text-base text-slate-400">
                                     {item.desc}
                                 </p>
 
@@ -152,7 +159,7 @@ const Expertise = () => {
                     ))}
                 </div>
             </div>
-            <ScrollIndicator label="Explore Projects" />
+            <ScrollIndicator label="Coding Profiles" />
         </section>
     );
 };
