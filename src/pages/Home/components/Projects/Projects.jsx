@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaStar, FaTimes, FaYoutube, FaInfoCircle, FaLightbulb, FaRocket, FaCheckCircle, FaCode, FaCog, FaDatabase, FaShieldAlt, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaStar, FaTimes, FaYoutube, FaInfoCircle, FaLightbulb, FaRocket, FaCheckCircle, FaCode, FaCog, FaDatabase, FaShieldAlt, FaChartLine, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { BiTimeFive, BiCodeBlock } from 'react-icons/bi';
 import { HiSparkles } from 'react-icons/hi';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
 import Kishorkontho_project_thum from '../../../../assets/images/project/kishorkonto.png';
+import Foodzy_project_thum from '../../../../assets/images/project/foodzy.png';
+import NoteBank_project_thum from '../../../../assets/images/project/notebank.png';
+import NoteBank_project_thum_2 from '../../../../assets/images/project/notebank_slider_img_2.png';
+import NoteBank_project_thum_3 from '../../../../assets/images/project/notebank_slider_img_3.png';
 
 // Project Data
 const projectData = [
@@ -57,7 +61,7 @@ const projectData = [
             "github": "https://github.com/ramim141/kishorkhonto-medabritti-result-management-system",
             "live": "https://kksylwest.vercel.app/"
         },
-        "image": Kishorkontho_project_thum,
+        "images": [Kishorkontho_project_thum, Kishorkontho_project_thum, Kishorkontho_project_thum],
         "featured": true
     }, 
 
@@ -110,10 +114,10 @@ const projectData = [
         ],
         "youtubeVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
         "links": {
-            "github": "https://github.com/ramim141",
+            "github": "https://github.com/ramim141/foodzy",
             "live": "https://foodzy-organic.vercel.app"
         },
-        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2000&auto=format&fit=crop",
+        "images": [Foodzy_project_thum, Foodzy_project_thum, Foodzy_project_thum],
         "featured": false
     },
     
@@ -140,7 +144,7 @@ const projectData = [
         "techStack": {
             "frontend": ["React.js", "Axios", "React Router", "Tailwind"],
             "backend": ["Django REST Framework", "SQLite", "JWT Authentication", "WebSockets"],
-            "tools": ["Git", "pgAdmin", "Postman"]
+            "tools": ["Git", "Django Admin", "Postman"]
         },
         "duration": "2 months",
         "team": "Project-300 Course",
@@ -165,7 +169,7 @@ const projectData = [
             "github": "https://github.com/ramim141",
             "live": "#"
         },
-        "image": "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2000&auto=format&fit=crop",
+        "images": [NoteBank_project_thum, NoteBank_project_thum_2, NoteBank_project_thum_3],
         "featured": false
     },
     
@@ -264,6 +268,24 @@ const projectData = [
 
 // Modal Component
 const ProjectModal = ({ project, onClose }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const images = project.images || [project.image];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    const goToPrevious = () => {
+        setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
+
+    const goToNext = () => {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -295,16 +317,56 @@ const ProjectModal = ({ project, onClose }) => {
                     <FaTimes size={18} />
                 </motion.button>
 
-                {/* Header Image */}
-                <div className="relative overflow-hidden h-72">
-                    <motion.img 
-                        initial={{ scale: 1.1 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 0.6 }}
-                        src={project.image} 
-                        alt={project.title} 
-                        className="object-cover w-full h-full"
-                    />
+                {/* Header Image Slider */}
+                <div className="relative overflow-hidden h-72 md:h-80 lg:h-96">
+                    <AnimatePresence mode="wait">
+                        <motion.img 
+                            key={currentImageIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            src={images[currentImageIndex]} 
+                            alt={`${project.title} - ${currentImageIndex + 1}`} 
+                            className="absolute inset-0 object-cover w-full h-full"
+                        />
+                    </AnimatePresence>
+                    
+                    {/* Navigation Arrows */}
+                    {images.length > 1 && (
+                        <>
+                            <button
+                                onClick={goToPrevious}
+                                className="absolute z-40 p-2 transition-all transform -translate-y-1/2 border rounded-full left-4 top-1/2 bg-slate-900/70 backdrop-blur-md border-slate-700/50 hover:bg-slate-800 text-slate-300 hover:text-white hover:scale-110"
+                            >
+                                <FaChevronLeft size={16} />
+                            </button>
+                            <button
+                                onClick={goToNext}
+                                className="absolute z-40 p-2 transition-all transform -translate-y-1/2 border rounded-full right-4 top-1/2 bg-slate-900/70 backdrop-blur-md border-slate-700/50 hover:bg-slate-800 text-slate-300 hover:text-white hover:scale-110"
+                            >
+                                <FaChevronRight size={16} />
+                            </button>
+                        </>
+                    )}
+
+                    {/* Dots Indicator */}
+                    {images.length > 1 && (
+                        <div className="absolute z-40 flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
+                            {images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                    className={`w-2 h-2 rounded-full transition-all ${
+                                        index === currentImageIndex 
+                                            ? 'bg-cyan-400 w-6' 
+                                            : 'bg-slate-500 hover:bg-slate-400'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    )}
+
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10"></div>
                     {project.featured && (
@@ -329,19 +391,25 @@ const ProjectModal = ({ project, onClose }) => {
                         className="mb-10"
                     >
                         <div className="flex flex-wrap items-center gap-3 mb-5">
-                            <span className="inline-block px-4 py-1.5 text-xs font-black tracking-widest uppercase border rounded-full text-cyan-400 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/40 shadow-lg shadow-cyan-500/20">
+                            <span className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1 text-[10px] md:px-4 md:py-1.5 md:text-xs font-black tracking-widest uppercase border rounded-full text-cyan-400 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/40 shadow-lg shadow-cyan-500/20">
+                                <div className="relative flex w-1.5 h-1.5 md:w-2 md:h-2">
+                                    <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-cyan-400"></span>
+                                    <span className="relative inline-flex w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-cyan-500"></span>
+                                </div>
                                 {project.category}
                             </span>
-                            {project.duration && (
-                                <span className="flex items-center gap-2 px-4 py-1.5 text-xs font-bold border rounded-full text-blue-400 bg-blue-500/10 border-blue-500/30 backdrop-blur-sm">
-                                    <BiTimeFive size={14} /> {project.duration}
-                                </span>
-                            )}
-                            {project.team && (
-                                <span className="flex items-center gap-2 px-4 py-1.5 text-xs font-bold border rounded-full text-purple-400 bg-purple-500/10 border-purple-500/30 backdrop-blur-sm">
-                                    <FaCode size={12} /> {project.team}
-                                </span>
-                            )}
+                            <div className="flex items-center gap-2">
+                                {project.duration && (
+                                    <span className="flex items-center gap-1.5 px-3 py-1 text-[10px] md:text-xs font-bold border rounded-full text-blue-400 bg-blue-500/10 border-blue-500/30 backdrop-blur-sm md:px-4 md:py-1.5 md:gap-2">
+                                        <BiTimeFive size={12} className="md:w-3.5 md:h-3.5" /> {project.duration}
+                                    </span>
+                                )}
+                                {project.team && (
+                                    <span className="flex items-center gap-1.5 px-3 py-1 text-[10px] md:text-xs font-bold border rounded-full text-purple-400 bg-purple-500/10 border-purple-500/30 backdrop-blur-sm md:px-4 md:py-1.5 md:gap-2">
+                                        <FaCode size={10} className="md:w-3 md:h-3" /> {project.team}
+                                    </span>
+                                )}
+                            </div>
                         </div>
                         <h2 className="mb-6 text-3xl font-black tracking-tight text-transparent md:text-5xl lg:text-6xl bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
                             {project.title}
@@ -356,11 +424,11 @@ const ProjectModal = ({ project, onClose }) => {
                             transition={{ delay: 0.2 }}
                             className="mb-12"
                         >
-                            <div className="flex items-center gap-3 mb-5">
-                                <div className="p-2.5 rounded-lg bg-gradient-to-br from-red-500 to-pink-600 shadow-lg shadow-red-500/30">
-                                    <FaYoutube className="text-white" size={22} />
+                            <div className="flex items-center gap-2 mb-4 md:gap-3 md:mb-5">
+                                <div className="p-2 rounded-lg shadow-lg bg-gradient-to-br from-red-500 to-pink-600 shadow-red-500/30">
+                                    <FaYoutube className="w-3 h-3 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">Project Walkthrough</h3>
+                                <h3 className="text-lg font-bold text-white md:text-xl lg:text-2xl">Project Walkthrough</h3>
                             </div>
                             <div className="relative overflow-hidden border shadow-2xl aspect-video rounded-2xl border-slate-700/50 shadow-cyan-500/10">
                                 <iframe
@@ -381,9 +449,9 @@ const ProjectModal = ({ project, onClose }) => {
                         transition={{ delay: 0.3 }}
                         className="mb-12"
                     >
-                        <h3 className="flex items-center gap-4 pb-4 mb-6 text-2xl font-black text-white border-b md:text-3xl border-slate-700/50">
-                            <div className="p-3 shadow-lg rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-cyan-500/30">
-                                <FaInfoCircle size={22} />
+                        <h3 className="flex items-center gap-2 pb-3 mb-5 text-lg font-black text-white border-b md:gap-4 md:pb-4 md:mb-6 md:text-2xl lg:text-3xl border-slate-700/50">
+                            <div className="p-2 shadow-lg md:p-3 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-cyan-500/30">
+                                <FaInfoCircle className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                             </div>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">Project Overview</span>
                         </h3>
@@ -400,9 +468,9 @@ const ProjectModal = ({ project, onClose }) => {
                             transition={{ delay: 0.4 }}
                             className="mb-12"
                         >
-                            <h3 className="flex items-center gap-4 pb-4 mb-6 text-2xl font-black text-white border-b md:text-3xl border-slate-700/50">
-                                <div className="p-3 shadow-lg rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-green-500/30">
-                                    <FaCheckCircle size={22} />
+                            <h3 className="flex items-center gap-2 pb-3 mb-5 text-lg font-black text-white border-b md:gap-4 md:pb-4 md:mb-6 md:text-2xl lg:text-3xl border-slate-700/50">
+                                <div className="p-2 shadow-lg md:p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-green-500/30">
+                                    <FaCheckCircle className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                                 </div>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">Core Features</span>
                             </h3>
@@ -436,9 +504,9 @@ const ProjectModal = ({ project, onClose }) => {
                         {/* Challenges */}
                         {project.challenges && (
                             <div className="p-6 transition-all duration-300 border shadow-xl md:p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-800/30 border-slate-700/50 hover:border-red-500/40 hover:shadow-red-500/10 backdrop-blur-sm">
-                                <h3 className="flex items-center gap-3 mb-5 text-xl font-black text-white md:text-2xl">
-                                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 shadow-lg shadow-red-500/30">
-                                        <FaShieldAlt size={20} />
+                                <h3 className="flex items-center gap-2 mb-4 text-lg font-black text-white md:gap-3 md:mb-5 md:text-xl lg:text-2xl">
+                                    <div className="p-2 rounded-xl shadow-lg md:p-2.5 bg-gradient-to-br from-red-500 to-orange-600 shadow-red-500/30">
+                                        <FaShieldAlt className="w-4 h-4 md:w-5 md:h-5" />
                                     </div>
                                     Technical Challenges
                                 </h3>
@@ -450,9 +518,9 @@ const ProjectModal = ({ project, onClose }) => {
                         {/* Learnings */}
                         {project.learnings && (
                             <div className="p-6 transition-all duration-300 border shadow-xl md:p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-800/30 border-slate-700/50 hover:border-yellow-500/40 hover:shadow-yellow-500/10 backdrop-blur-sm">
-                                <h3 className="flex items-center gap-3 mb-5 text-xl font-black text-white md:text-2xl">
-                                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-600 shadow-lg shadow-yellow-500/30">
-                                        <FaLightbulb size={20} />
+                                <h3 className="flex items-center gap-2 mb-4 text-lg font-black text-white md:gap-3 md:mb-5 md:text-xl lg:text-2xl">
+                                    <div className="p-2 rounded-xl shadow-lg md:p-2.5 bg-gradient-to-br from-yellow-500 to-amber-600 shadow-yellow-500/30">
+                                        <FaLightbulb className="w-4 h-4 md:w-5 md:h-5" />
                                     </div>
                                     What I Learned
                                 </h3>
@@ -478,9 +546,9 @@ const ProjectModal = ({ project, onClose }) => {
                             transition={{ delay: 0.6 }}
                             className="mb-12"
                         >
-                            <h3 className="flex items-center gap-4 pb-4 mb-6 text-2xl font-black text-white border-b md:text-3xl border-slate-700/50">
-                                <div className="p-3 shadow-lg rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-500/30">
-                                    <FaRocket size={22} />
+                            <h3 className="flex items-center gap-2 pb-3 mb-5 text-lg font-black text-white border-b md:gap-4 md:pb-4 md:mb-6 md:text-2xl lg:text-3xl border-slate-700/50">
+                                <div className="p-2 shadow-lg md:p-3 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-500/30">
+                                    <FaRocket className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                                 </div>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">Future Enhancements</span>
                             </h3>
@@ -512,9 +580,9 @@ const ProjectModal = ({ project, onClose }) => {
                             transition={{ delay: 0.7 }}
                             className="mb-12"
                         >
-                            <h3 className="flex items-center gap-4 pb-4 mb-6 text-2xl font-black text-white border-b md:text-3xl border-slate-700/50">
-                                <div className="p-3 shadow-lg rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 shadow-purple-500/30">
-                                    <BiCodeBlock size={22} />
+                            <h3 className="flex items-center gap-2 pb-3 mb-5 text-lg font-black text-white border-b md:gap-4 md:pb-4 md:mb-6 md:text-2xl lg:text-3xl border-slate-700/50">
+                                <div className="p-2 shadow-lg md:p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 shadow-purple-500/30">
+                                    <BiCodeBlock className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                                 </div>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">Technology Stack</span>
                             </h3>
@@ -684,10 +752,10 @@ const Projects = () => {
                             <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 blur-2xl group-hover:opacity-100 -z-10"></div>
 
                             {/* Image Section */}
-                            <div className={`relative overflow-hidden ${project.featured ? 'md:w-1/2 h-72 md:h-auto' : 'h-56 w-full'}`}>
+                            <div className={`relative overflow-hidden ${project.featured ? 'md:w-1/2 h-48 sm:h-56 md:h-auto' : 'h-40 sm:h-48 md:h-56 w-full'}`}>
                                 <div className="absolute inset-0 z-10 transition-colors bg-slate-900/30 group-hover:bg-slate-900/10"></div>
                                 <img 
-                                    src={project.image} 
+                                    src={project.images ? project.images[0] : project.image} 
                                     alt={project.title} 
                                     className="relative object-cover w-full h-full transition-transform duration-700 transform group-hover:scale-110"
                                 />
@@ -701,7 +769,7 @@ const Projects = () => {
                             </div>
 
                             {/* Content Section */}
-                            <div className={`relative z-10 p-8 flex flex-col ${project.featured ? 'md:w-1/2' : ''}`}>
+                            <div className={`relative z-10 p-4 sm:p-6 md:p-8 flex flex-col ${project.featured ? 'md:w-1/2' : ''}`}>
                                 
                                 {/* Category Tag */}
                                 <div className="mb-4">
@@ -714,16 +782,16 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                <h3 className="mb-4 text-lg font-bold text-white transition-colors sm:text-xl md:text-2xl lg:text-3xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500">
+                                <h3 className="mb-3 text-base font-bold text-white transition-colors sm:text-lg md:text-xl lg:text-2xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500">
                                     {project.title}
                                 </h3>
                                 
-                                <p className="flex-grow mb-6 text-sm leading-relaxed sm:text-base text-slate-400 group-hover:text-slate-300">
+                                <p className="flex-grow mb-4 text-xs leading-relaxed sm:text-sm md:text-base text-slate-400 group-hover:text-slate-300">
                                     {project.description}
                                 </p>
 
                                 {/* Tech Stack Pills */}
-                                <div className="grid grid-cols-3 gap-1.5 pb-6 mb-6 border-b md:grid-cols-3 md:gap-2 lg:grid-cols-5 place-items-center border-slate-700/50">
+                                <div className="grid grid-cols-3 gap-1.5 pb-4 mb-4 border-b sm:pb-5 sm:mb-5 md:pb-6 md:mb-6 md:grid-cols-3 md:gap-2 lg:grid-cols-5 place-items-center border-slate-700/50">
                                     {project.tech.map((t, i) => (
                                         <span 
                                             key={i} 

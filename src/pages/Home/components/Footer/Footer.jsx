@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import FooterScrollTopIcon from '../../../../components/ui/FooterScrollTopIcon';
 import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaHeart, FaCode, FaRocket } from 'react-icons/fa';
 import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi';
 
@@ -57,6 +58,14 @@ const Footer = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
+
+  // Scroll-to-top button state
+  const [showScroll, setShowScroll] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowScroll(window.scrollY > 100);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <footer className="relative bg-dark border-t border-darkLight overflow-hidden">
@@ -184,25 +193,22 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Scroll to Top Button */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="absolute bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-primary/50 transition-all duration-300 group"
-          whileHover={{ scale: 1.1, rotate: 360 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <svg 
-            className="w-5 h-5 transform group-hover:-translate-y-1 transition-transform" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
+        {/* Scroll to Top Button - only show when scrolled down */}
+        {showScroll && (
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed z-50 bottom-8 right-8 w-16 h-16 p-0 bg-transparent rounded-full flex items-center justify-center shadow-lg hover:shadow-primary/50 transition-all duration-300 group"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ delay: 0.5 }}
+            aria-label="Scroll to top"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </motion.button>
+            <FooterScrollTopIcon />
+          </motion.button>
+        )}
       </motion.div>
     </footer>
   );

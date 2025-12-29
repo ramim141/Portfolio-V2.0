@@ -1,8 +1,76 @@
 import React, { useState } from 'react';
-import contentData from './contentData.json';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaYoutube, FaPlay, FaArrowRight, FaListUl } from 'react-icons/fa';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
+
+// Import playlist thumbnail images
+import dataStructureThumb from '../../../../assets/images/content/Data Structure.png';
+import cProgrammingThumb from '../../../../assets/images/content/C_programming.png';
+import databaseThumb from '../../../../assets/images/content/Data Structure.png';
+import machineLearningThumb from '../../../../assets/images/content/Data Structure.png';
+import microprocessorThumb from '../../../../assets/images/content/Data Structure.png';
+import statisticsThumb from '../../../../assets/images/content/Data Structure.png';
+
+// Content Data
+const contentData = {
+    categories: ["Latest", "Programming", "Database", "AI/ML"],
+    playlists: [
+        {
+            id: 1,
+            title: "Data Structure",
+            playlistId: "PL9P7ljTbmNa3_zkGBGDi0Um1KkiJeYpi5",
+            thumbnail: dataStructureThumb,
+            tags: ["Latest", "Programming"],
+            videoCount: 9,
+            description: "Complete guide to data structures including arrays, linked lists, trees, graphs and more"
+        },
+        {
+            id: 2,
+            title: "C Programming Beginners",
+            playlistId: "PL9P7ljTbmNa2Zopsl-3vrWeBYs6jlqivZ",
+            thumbnail: cProgrammingThumb,
+            tags: ["Latest", "Programming"],
+            videoCount: 10,
+            description: "Learn C programming from scratch with hands-on examples and projects"
+        },
+        {
+            id: 3,
+            title: "Database Management System",
+            playlistId: "PL9P7ljTbmNa3fg9upaWfPRNkEUjpLs3Cx",
+            thumbnail: databaseThumb,
+            tags: ["Latest", "Database"],
+            videoCount: 6,
+            description: "Master DBMS concepts including SQL, normalization, transactions and database design"
+        },
+        {
+            id: 4,
+            title: "Machine Learning",
+            playlistId: "PL9P7ljTbmNa05Z-EBkPh3Iy13xIuL91UU",
+            thumbnail: machineLearningThumb,
+            tags: ["Latest", "AI/ML"],
+            videoCount: 2,
+            description: "Comprehensive machine learning course covering algorithms, models and practical applications"
+        },
+        {
+            id: 5,
+            title: "Microprocessor",
+            playlistId: "PL9P7ljTbmNa0C79omI6YGH1eMpuD5Eusi",
+            thumbnail: microprocessorThumb,
+            tags: ["Programming"],
+            videoCount: 7,
+            description: "Understanding microprocessor architecture, assembly language and embedded systems"
+        },
+        {
+            id: 6,
+            title: "Statistics",
+            playlistId: "PL9P7ljTbmNa2avvNlBsFmy_HWQYfmQMXn",
+            thumbnail: statisticsThumb,
+            tags: ["Latest", "AI/ML"],
+            videoCount: 2,
+            description: "Statistical concepts and methods for data analysis and machine learning"
+        }
+    ]
+};
 
 const Content = () => {
     const [activeTag, setActiveTag] = useState("Latest");
@@ -108,7 +176,7 @@ const Content = () => {
                                         className="relative block overflow-hidden aspect-video"
                                     >
                                         <img 
-                                            src={`https://img.youtube.com/vi/${playlist.thumbnailId}/maxresdefault.jpg`} 
+                                            src={playlist.thumbnail} 
                                             alt={playlist.title}
                                             className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                                         />
