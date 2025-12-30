@@ -255,7 +255,7 @@ const Content = () => {
                     </motion.div>
                 )}
             </div>
-            <ScrollIndicator label="Latest Blogs" />
+            {/* <ScrollIndicator label="Latest Blogs" /> */}
         </section>
     );
 };
