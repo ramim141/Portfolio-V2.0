@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   
   // GitHub Pages deployment configuration
-  base: '/portfolio-ramim/',
+  base: '/Portfolio-V2.0/',
   
   // Build optimizations
   build: {
