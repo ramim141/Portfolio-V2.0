@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from './components/Hero/Hero';
+
+// Temporarily import directly to debug issues
 import Expertise from './components/Expertise/Expertise';
-import Projects from './components/Projects/Projects'; 
+import Projects from './components/Projects/Projects';
 import About from './components/About/About';
 import Programming from './components/Programming/Programming';
 import Content from './components/Content/Content';
 import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
+
+// Section loading component
+const SectionLoader = () => (
+  <div className="flex justify-center py-12">
+    <div className="w-8 h-8 border-2 rounded-full border-primary border-t-transparent animate-spin"></div>
+  </div>
+);
 
 const Home = () => {
     return (
@@ -18,13 +27,16 @@ const Home = () => {
             </Helmet>
             
             <main className="min-h-screen bg-dark">
+                {/* Hero loads immediately for better perceived performance */}
                 <Hero />
+                
+                {/* Temporarily without lazy loading to debug */}
                 <Expertise />
                 <Programming />
                 <Projects />
                 <About />
+                <Content />
                 
-                <Content /> 
                 {/* <Blog /> */}
                 <Footer />
             </main>

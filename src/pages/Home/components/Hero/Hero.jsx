@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, memo, useMemo } from "react"
 import { motion } from "framer-motion"
 import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaDownload, FaArrowRight, FaCode, FaPlay, FaFacebook } from "react-icons/fa"
 import { SiPython, SiDjango, SiReact, SiTensorflow } from "react-icons/si"
@@ -27,42 +27,56 @@ const heroData = {
   },
 }
 
-// --- TYPING ANIMATION HOOK ---
+// --- OPTIMIZED TYPING ANIMATION HOOK ---
 const useTypingEffect = (text, speed = 80) => {
   const [displayedText, setDisplayedText] = useState("")
   const [isComplete, setIsComplete] = useState(false)
 
   useEffect(() => {
+    if (!text) return;
+    
     let i = 0
-    const timer = setInterval(() => {
+    let animationId;
+    
+    const animateTyping = () => {
       if (i < text.length) {
         setDisplayedText(text.slice(0, i + 1))
         i++
+        animationId = setTimeout(animateTyping, speed)
       } else {
         setIsComplete(true)
-        clearInterval(timer)
       }
-    }, speed)
-    return () => clearInterval(timer)
+    }
+    
+    // Use setTimeout for better performance than setInterval
+    animationId = setTimeout(animateTyping, speed)
+    
+    return () => {
+      if (animationId) clearTimeout(animationId)
+    }
   }, [text, speed])
 
-  return { displayedText, isComplete }
+  return useMemo(() => ({ displayedText, isComplete }), [displayedText, isComplete])
 }
 
-// --- SUB-COMPONENTS ---
+// --- MEMOIZED SUB-COMPONENTS ---
 
-const TechIcon = ({ name }) => {
-  const icons = {
+const TechIcon = memo(({ name }) => {
+  const icons = useMemo(() => ({
     Python: <SiPython className="w-6 h-6 md:w-7 md:h-7 text-[#3776AB]" />,
     Django: <SiDjango className="w-6 h-6 md:w-7 md:h-7 text-[#44B78B]" />,
     React: <SiReact className="w-6 h-6 md:w-7 md:h-7 text-[#61DAFB]" />,
     TensorFlow: <SiTensorflow className="w-6 h-6 md:w-7 md:h-7 text-[#FF6F00]" />,
-  }
+  }), [])
+  
   return icons[name] || null
-}
+})
 
-const SocialButton = ({ type, url, index }) => {
-  const iconConfig = {
+// Set display names for debugging
+TechIcon.displayName = 'TechIcon'
+
+const SocialButton = memo(({ type, url, index }) => {
+  const iconConfig = useMemo(() => ({
     github: { 
       icon: <FaGithub className="w-5 h-5" />, 
       hoverBg: "hover:bg-[#333]", 
@@ -73,7 +87,6 @@ const SocialButton = ({ type, url, index }) => {
       hoverBg: "hover:bg-[#0A66C2]",
       shadow: "hover:shadow-[#0A66C2]/40",
     },
-    
     email: {
       icon: <FaEnvelope className="w-5 h-5" />,
       hoverBg: "hover:bg-cyan-600",
@@ -89,46 +102,62 @@ const SocialButton = ({ type, url, index }) => {
       hoverBg: "hover:bg-[#FF0000]",
       shadow: "hover:shadow-[#FF0000]/40",
     },
-  }
+  }), [])
 
   const config = iconConfig[type]
+  
+  // Optimize animation props for better performance
+  const animationProps = useMemo(() => ({
+    initial: { opacity: 0, scale: 0.5 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { 
+      delay: 0.8 + index * 0.1, 
+      type: "spring", 
+      stiffness: 200,
+      damping: 20
+    },
+    whileHover: { scale: 1.1, y: -4 },
+    whileTap: { scale: 0.9 }
+  }), [index])
 
   return (
     <motion.a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.8 + index * 0.1, type: "spring", stiffness: 200 }}
-      whileHover={{ scale: 1.1, y: -4 }}
-      whileTap={{ scale: 0.9 }}
+      {...animationProps}
       className={`w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-900/50 backdrop-blur-md border border-slate-700/50 text-slate-400 hover:text-white hover:border-slate-500 transition-all duration-300 shadow-lg ${config.hoverBg} ${config.shadow}`}
     >
       {config.icon}
     </motion.a>
   )
-}
+})
 
-const StatCard = ({ value, label, icon: Icon, gradient, delay }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay, duration: 0.5 }}
-    whileHover={{ y: -5, scale: 1.02 }}
-    className="flex items-center gap-3 p-3 transition-colors border sm:gap-4 sm:p-4 group bg-slate-900/40 backdrop-blur-md border-slate-800/50 rounded-2xl hover:border-slate-600/50"
-  >
-    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:shadow-xl transition-shadow`}>
-      <Icon className="w-5 h-5 text-white sm:w-6 sm:h-6" />
-    </div>
-    <div className="min-w-0">
-      <p className="text-lg font-bold leading-tight text-white sm:text-xl tabular-nums">{value}</p>
-      <p className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-slate-500">{label}</p>
-    </div>
-  </motion.div>
-)
+SocialButton.displayName = 'SocialButton'
 
-const FloatingBadge = ({ name, className, animateProps, delay }) => (
+const StatCard = memo(({ value, label, icon: Icon, gradient, delay }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.5 }}
+      whileHover={{ y: -5, scale: 1.02 }}
+      className="flex items-center gap-3 p-3 transition-colors border sm:gap-4 sm:p-4 group bg-slate-900/40 backdrop-blur-md border-slate-800/50 rounded-2xl hover:border-slate-600/50"
+    >
+      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:shadow-xl transition-shadow`}>
+        <Icon className="w-5 h-5 text-white sm:w-6 sm:h-6" />
+      </div>
+      <div className="min-w-0">
+        <p className="text-lg font-bold leading-tight text-white sm:text-xl tabular-nums">{value}</p>
+        <p className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-slate-500">{label}</p>
+      </div>
+    </motion.div>
+  )
+})
+
+StatCard.displayName = 'StatCard'
+
+const FloatingBadge = memo(({ name, className, animateProps, delay }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
@@ -143,27 +172,42 @@ const FloatingBadge = ({ name, className, animateProps, delay }) => (
       <TechIcon name={name} />
     </motion.div>
   </motion.div>
-)
+))
 
-const CodeLine = ({ lineNum, children, indent = 0 }) => (
+FloatingBadge.displayName = 'FloatingBadge'
+
+const CodeLine = memo(({ lineNum, children, indent = 0 }) => (
   <div className="flex items-start">
     <span className="w-8 text-right text-slate-600 text-xs select-none flex-shrink-0 pt-0.5">{lineNum}</span>
     <pre className="ml-4 text-sm leading-relaxed" style={{ paddingLeft: `${indent * 16}px` }}>
       {children}
     </pre>
   </div>
-)
+))
 
-const GlowEffect = ({ className }) => (
+CodeLine.displayName = 'CodeLine'
+
+const GlowEffect = memo(({ className }) => (
   <div className={`absolute pointer-events-none select-none ${className}`}>
     <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full animate-pulse" />
     <div className="absolute inset-0 bg-blue-600/10 blur-[60px] rounded-full animate-pulse delay-700" />
   </div>
-)
+))
 
-const Hero = () => {
+GlowEffect.displayName = 'GlowEffect'
+
+const Hero = memo(() => {
   const { displayedText, isComplete } = useTypingEffect("Model training complete! ✓", 60)
   const [activeStatCard, setActiveStatCard] = useState(0)
+
+  // Memoize static data to prevent recreating objects on each render
+  const socialData = useMemo(() => [
+    { type: "github", url: heroData.socials.github },
+    { type: "linkedin", url: heroData.socials.linkedin },
+    { type: "email", url: heroData.socials.email },
+    { type: "facebook", url: heroData.socials.facebook },
+    { type: "youtube", url: heroData.socials.youtube },
+  ], [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -296,8 +340,8 @@ const Hero = () => {
             >
               <span className="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Orbiting on:</span>
               <div className="flex gap-4">
-                {Object.entries(heroData.socials).map(([key, url], i) => (
-                  <SocialButton key={key} type={key} url={url} index={i} />
+                {socialData.map((social, i) => (
+                  <SocialButton key={social.type} type={social.type} url={social.url} index={i} />
                 ))}
               </div>
             </motion.div>
@@ -551,6 +595,9 @@ const Hero = () => {
       `}</style>
     </section>
   )
-}
+})
+
+// Set display name for debugging
+Hero.displayName = 'Hero'
 
 export default Hero

@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaStar, FaTimes, FaYoutube, FaInfoCircle, FaLightbulb, FaRocket, FaCheckCircle, FaCode, FaCog, FaDatabase, FaShieldAlt, FaChartLine, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { BiTimeFive, BiCodeBlock } from 'react-icons/bi';
 import { HiSparkles } from 'react-icons/hi';
 import ScrollIndicator from '../../../../components/ScrollIndicator';
+import OptimizedImage from '../../../../components/OptimizedImage';
 
-
+// Lazy load images to improve performance
 import NoteBank_project_thum from '../../../../assets/images/project/notebank.png';
 import NoteBank_slider_2 from '../../../../assets/images/project/notebank_slider_img_2.png';
 import NoteBank_slider_3 from '../../../../assets/images/project/notebank_slider_img_2.png';
 import NoteBank_slider_4 from '../../../../assets/images/project/notebank_slider_img_2.png';
-// import NoteBank_slider_5 from '../../../../assets/images/project/notebank_slider_img_5.png';
 
 
 

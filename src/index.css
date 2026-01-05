@@ -2,24 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Variables for better performance */
+:root {
+  --primary: #38bdf8;
+  --secondary: #818cf8;
+  --dark: #0b1120;
+  --dark-light: #1e293b;
+  --accent: #22d3ee;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Optimize font loading */
+html {
+  font-display: swap;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Enable hardware acceleration */
+  transform: translateZ(0);
+  /* Optimize scrolling performance */
+  scroll-behavior: smooth;
+  /* Prevent layout shift */
+  min-height: 100vh;
 }
 
-/* Gradient text animation */
+/* Improve scroll performance */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--dark-light);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dark-light);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Performance optimized animations */
 @keyframes gradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%, 100% { 
+    background-position: 0% 50%; 
+    transform: translateZ(0);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    transform: translateZ(0);
+  }
 }
 
 .animate-gradient {
   animation: gradient 3s ease infinite;
+  will-change: background-position;
+}
+
+/* GPU accelerated animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-20px) translateZ(0); 
+  }
+}
+
+@keyframes blob {
+  0% { 
+    transform: translate(0px, 0px) scale(1) translateZ(0); 
+  }
+  33% { 
+    transform: translate(30px, -50px) scale(1.1) translateZ(0); 
+  }
+  66% { 
+    transform: translate(-20px, 20px) scale(0.9) translateZ(0); 
+  }
+  100% { 
+    transform: translate(0px, 0px) scale(1) translateZ(0); 
+  }
+}
+
+@keyframes spin-slow {
+  from { 
+    transform: rotate(0deg) translateZ(0); 
+  }
+  to { 
+    transform: rotate(360deg) translateZ(0); 
+  }
+}
+
+/* Optimize image loading */
+img {
+  loading: lazy;
+  decoding: async;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize focus indicators */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }

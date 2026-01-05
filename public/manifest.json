@@ -1,0 +1,28 @@
+{
+  "name": "Ramim Ahmed - Portfolio",
+  "short_name": "Ramim Portfolio",
+  "description": "Portfolio of Ramim Ahmed - Software Engineer & Aspiring ML Engineer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1120",
+  "theme_color": "#38bdf8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "portfolio", "developer"],
+  "lang": "en",
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
